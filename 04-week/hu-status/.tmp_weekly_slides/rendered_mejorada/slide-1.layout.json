@@ -1,0 +1,1138 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/q1rxj5",
+    "id": "q1rxj5",
+    "slide": 1,
+    "layoutId": "39396fd2-98cd-4dff-b471-e1303288481c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "9c682e46-7aa5-41cd-bedf-bb8bc23a8b6b",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "39396fd2-98cd-4dff-b471-e1303288481c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "9c682e46-7aa5-41cd-bedf-bb8bc23a8b6b",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "9c682e46-7aa5-41cd-bedf-bb8bc23a8b6b",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcji98zm",
+      "id": "1",
+      "name": "kicker-1",
+      "bbox": [
+        48,
+        32,
+        350,
+        24
+      ],
+      "geometry": "rect",
+      "text": "QUÉ HICIMOS · 24–30 DE AGOSTO",
+      "textPreview": "QUÉ HICIMOS · 24–30 DE AGOSTO",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "QUÉ HICIMOS · 24–30 DE AGOSTO"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "QUÉ HICIMOS · 24–30 DE AGOSTO",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "QUÉ HICIMOS · 24–30 DE AGOSTO",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a98zytgb",
+      "id": "2",
+      "name": "title-1",
+      "bbox": [
+        48,
+        66,
+        1184,
+        92
+      ],
+      "geometry": "rect",
+      "text": "Alineamos el producto y construimos una versión demostrable",
+      "textPreview": "Alineamos el producto y construimos una versión demostrable",
+      "resolvedFontSize": 38,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 38,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Alineamos el producto y construimos una versión demostrable"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Alineamos el producto y construimos una versión demostrable",
+          "resolvedTextStyle": {
+            "fontSize": 38,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Alineamos el producto y construimos una versión demostrable",
+              "fontSize": 38,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vahg7yhg",
+      "id": "3",
+      "name": "rule-1",
+      "bbox": [
+        48,
+        162,
+        1184,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4zah43yd",
+      "id": "4",
+      "name": "page-1",
+      "bbox": [
+        1168,
+        672,
+        64,
+        20
+      ],
+      "geometry": "rect",
+      "text": "01",
+      "textPreview": "01",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "01"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "01",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "01",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/50jid8zy",
+      "id": "5",
+      "name": "intro-1",
+      "bbox": [
+        48,
+        182,
+        1120,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Revisamos las inconsistencias del proyecto para que las reglas del negocio, los requisitos y la aplicación expresaran una misma solución odontológica.",
+      "textPreview": "Revisamos las inconsistencias del proyecto para que las reglas del negocio, los requisitos y la aplicación expresaran una misma solución ...",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Revisamos las inconsistencias del proyecto para que las reglas del negocio, los requisitos y la aplicación"
+          },
+          {
+            "index": 2,
+            "text": "expresaran una misma solución odontológica."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Revisamos las inconsistencias del proyecto para que las reglas del negocio, los requisitos y la aplicación expresaran una misma solución odontológica.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Revisamos las inconsistencias del proyecto para que las reglas del negocio, los requisitos y la aplicación expresaran una misma solución odontológica.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/idsz2dg7",
+      "id": "6",
+      "name": "accent-0",
+      "bbox": [
+        48,
+        274,
+        352,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#D0EDFA",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/je10byhs",
+      "id": "7",
+      "name": "label-0",
+      "bbox": [
+        48,
+        306,
+        352,
+        24
+      ],
+      "geometry": "rect",
+      "text": "COHERENCIA DEL PRODUCTO",
+      "textPreview": "COHERENCIA DEL PRODUCTO",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "COHERENCIA DEL PRODUCTO"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "COHERENCIA DEL PRODUCTO",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "COHERENCIA DEL PRODUCTO",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/036hsjyt",
+      "id": "8",
+      "name": "col-title-0",
+      "bbox": [
+        48,
+        350,
+        352,
+        66
+      ],
+      "geometry": "rect",
+      "text": "Reglas y trazabilidad alineadas",
+      "textPreview": "Reglas y trazabilidad alineadas",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Reglas y trazabilidad"
+          },
+          {
+            "index": 2,
+            "text": "alineadas"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Reglas y trazabilidad alineadas",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Reglas y trazabilidad alineadas",
+              "fontSize": 25,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l4fy1oze",
+      "id": "9",
+      "name": "col-body-0",
+      "bbox": [
+        48,
+        432,
+        352,
+        174
+      ],
+      "geometry": "rect",
+      "text": "Se corrigieron inconformidades entre el alcance, las reglas del negocio y la trazabilidad. También se ajustaron requisitos, historias de usuario y decisiones arquitectónicas para mantener una sola visión del sistema.",
+      "textPreview": "Se corrigieron inconformidades entre el alcance, las reglas del negocio y la trazabilidad. También se ajustaron requisitos, historias de ...",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 6,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Se corrigieron inconformidades entre el"
+          },
+          {
+            "index": 2,
+            "text": "alcance, las reglas del negocio y la"
+          },
+          {
+            "index": 3,
+            "text": "trazabilidad. También se ajustaron"
+          },
+          {
+            "index": 4,
+            "text": "requisitos, historias de usuario y"
+          },
+          {
+            "index": 5,
+            "text": "decisiones arquitectónicas para"
+          },
+          {
+            "index": 6,
+            "text": "mantener una sola visión del sistema."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Se corrigieron inconformidades entre el alcance, las reglas del negocio y la trazabilidad. También se ajustaron requisitos, historias de usuario y decisiones arquitectónicas para mantener una sola visión del sistema.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Se corrigieron inconformidades entre el alcance, las reglas del negocio y la trazabilidad. También se ajustaron requisitos, historias de usuario y decisiones arquitectónicas para mantener una sola visión del sistema.",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ho3etsj6",
+      "id": "10",
+      "name": "accent-1",
+      "bbox": [
+        450,
+        274,
+        352,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gnudkn2l",
+      "id": "11",
+      "name": "label-1",
+      "bbox": [
+        450,
+        306,
+        352,
+        24
+      ],
+      "geometry": "rect",
+      "text": "MVP MONOLÍTICO",
+      "textPreview": "MVP MONOLÍTICO",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "MVP MONOLÍTICO"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "MVP MONOLÍTICO",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "MVP MONOLÍTICO",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vm1wr210",
+      "id": "12",
+      "name": "col-title-1",
+      "bbox": [
+        450,
+        350,
+        352,
+        66
+      ],
+      "geometry": "rect",
+      "text": "Una solución para presentar",
+      "textPreview": "Una solución para presentar",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Una solución para"
+          },
+          {
+            "index": 2,
+            "text": "presentar"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Una solución para presentar",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Una solución para presentar",
+              "fontSize": 25,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ulsvixkf",
+      "id": "13",
+      "name": "col-body-1",
+      "bbox": [
+        450,
+        432,
+        352,
+        174
+      ],
+      "geometry": "rect",
+      "text": "Se desarrolló el monolito con Angular, Spring Boot y PostgreSQL. Integra autenticación, pacientes, citas, historias clínicas, facturación, pagos, usuarios y analítica para demostrar los flujos principales.",
+      "textPreview": "Se desarrolló el monolito con Angular, Spring Boot y PostgreSQL. Integra autenticación, pacientes, citas, historias clínicas, facturación...",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 6,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Se desarrolló el monolito con Angular,"
+          },
+          {
+            "index": 2,
+            "text": "Spring Boot y PostgreSQL. Integra"
+          },
+          {
+            "index": 3,
+            "text": "autenticación, pacientes, citas, historias"
+          },
+          {
+            "index": 4,
+            "text": "clínicas, facturación, pagos, usuarios y"
+          },
+          {
+            "index": 5,
+            "text": "analítica para demostrar los flujos"
+          },
+          {
+            "index": 6,
+            "text": "principales."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Se desarrolló el monolito con Angular, Spring Boot y PostgreSQL. Integra autenticación, pacientes, citas, historias clínicas, facturación, pagos, usuarios y analítica para demostrar los flujos principales.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Se desarrolló el monolito con Angular, Spring Boot y PostgreSQL. Integra autenticación, pacientes, citas, historias clínicas, facturación, pagos, usuarios y analítica para demostrar los flujos principales.",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5s3excj2",
+      "id": "14",
+      "name": "accent-2",
+      "bbox": [
+        852,
+        274,
+        352,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#D0EDFA",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4rudo72h",
+      "id": "15",
+      "name": "label-2",
+      "bbox": [
+        852,
+        306,
+        352,
+        24
+      ],
+      "geometry": "rect",
+      "text": "DISEÑO Y LÍNEA BASE",
+      "textPreview": "DISEÑO Y LÍNEA BASE",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "DISEÑO Y LÍNEA BASE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "DISEÑO Y LÍNEA BASE",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "DISEÑO Y LÍNEA BASE",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3qlwv21w",
+      "id": "16",
+      "name": "col-title-2",
+      "bbox": [
+        852,
+        350,
+        352,
+        66
+      ],
+      "geometry": "rect",
+      "text": "Figma y alcance del MVP",
+      "textPreview": "Figma y alcance del MVP",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Figma y alcance del MVP"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Figma y alcance del MVP",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Figma y alcance del MVP",
+              "fontSize": 25,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ipcvmxkb",
+      "id": "17",
+      "name": "col-body-2",
+      "bbox": [
+        852,
+        432,
+        352,
+        174
+      ],
+      "geometry": "rect",
+      "text": "Se terminó el prototipo en Figma y se preparó la documentación del MVP en un repositorio externo. Esto dejó una referencia común para la interfaz, el alcance aprobado y la implementación.",
+      "textPreview": "Se terminó el prototipo en Figma y se preparó la documentación del MVP en un repositorio externo. Esto dejó una referencia común para la ...",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Se terminó el prototipo en Figma y se"
+          },
+          {
+            "index": 2,
+            "text": "preparó la documentación del MVP en un"
+          },
+          {
+            "index": 3,
+            "text": "repositorio externo. Esto dejó una"
+          },
+          {
+            "index": 4,
+            "text": "referencia común para la interfaz, el"
+          },
+          {
+            "index": 5,
+            "text": "alcance aprobado y la implementación."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Se terminó el prototipo en Figma y se preparó la documentación del MVP en un repositorio externo. Esto dejó una referencia común para la interfaz, el alcance aprobado y la implementación.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Se terminó el prototipo en Figma y se preparó la documentación del MVP en un repositorio externo. Esto dejó una referencia común para la interfaz, el alcance aprobado y la implementación.",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/dgne1cjy",
+      "id": "18",
+      "name": "evidence-1",
+      "bbox": [
+        48,
+        628,
+        1050,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Resultado: reglas, trazabilidad, Figma y monolito quedaron orientados al mismo MVP.",
+      "textPreview": "Resultado: reglas, trazabilidad, Figma y monolito quedaron orientados al mismo MVP.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Resultado: reglas, trazabilidad, Figma y monolito quedaron orientados al mismo MVP."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Resultado: reglas, trazabilidad, Figma y monolito quedaron orientados al mismo MVP.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Resultado: reglas, trazabilidad, Figma y monolito quedaron orientados al mismo MVP.",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

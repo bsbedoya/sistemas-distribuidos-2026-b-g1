@@ -1,0 +1,1136 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/653vyd",
+    "id": "653vyd",
+    "slide": 3,
+    "layoutId": "f80ba6f4-8f8e-4382-a57e-9f2f5b2da833",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "030ae295-2f8e-42c9-9949-02bcc352fdaa",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "f80ba6f4-8f8e-4382-a57e-9f2f5b2da833",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "030ae295-2f8e-42c9-9949-02bcc352fdaa",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "030ae295-2f8e-42c9-9949-02bcc352fdaa",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l4vi94fa",
+      "id": "1",
+      "name": "kicker-3",
+      "bbox": [
+        48,
+        32,
+        350,
+        24
+      ],
+      "geometry": "rect",
+      "text": "PRÓXIMOS PASOS",
+      "textPreview": "PRÓXIMOS PASOS",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PRÓXIMOS PASOS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PRÓXIMOS PASOS",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PRÓXIMOS PASOS",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yh4zepgj",
+      "id": "2",
+      "name": "title-3",
+      "bbox": [
+        48,
+        66,
+        1184,
+        92
+      ],
+      "geometry": "rect",
+      "text": "Esta semana convertiremos la base en evidencia verificable",
+      "textPreview": "Esta semana convertiremos la base en evidencia verificable",
+      "resolvedFontSize": 38,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 38,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Esta semana convertiremos la base en evidencia verificable"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Esta semana convertiremos la base en evidencia verificable",
+          "resolvedTextStyle": {
+            "fontSize": 38,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Esta semana convertiremos la base en evidencia verificable",
+              "fontSize": 38,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zid07ux4",
+      "id": "3",
+      "name": "rule-3",
+      "bbox": [
+        48,
+        162,
+        1184,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cfmhczyd",
+      "id": "4",
+      "name": "page-3",
+      "bbox": [
+        1168,
+        672,
+        64,
+        20
+      ],
+      "geometry": "rect",
+      "text": "03",
+      "textPreview": "03",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "03",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "03",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xgvy5kfy",
+      "id": "5",
+      "name": "lead-3",
+      "bbox": [
+        48,
+        176,
+        980,
+        44
+      ],
+      "geometry": "rect",
+      "text": "La prioridad es cerrar el ciclo del MVP antes de avanzar con mayor complejidad arquitectónica.",
+      "textPreview": "La prioridad es cerrar el ciclo del MVP antes de avanzar con mayor complejidad arquitectónica.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "La prioridad es cerrar el ciclo del MVP antes de avanzar con mayor complejidad arquitectónica."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "La prioridad es cerrar el ciclo del MVP antes de avanzar con mayor complejidad arquitectónica.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "La prioridad es cerrar el ciclo del MVP antes de avanzar con mayor complejidad arquitectónica.",
+              "fontSize": 22,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ad4zapgn",
+      "id": "6",
+      "name": "timeline",
+      "bbox": [
+        72,
+        332,
+        1110,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bedg3ux8",
+      "id": "7",
+      "name": "node-0",
+      "bbox": [
+        72,
+        324,
+        18,
+        18
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gb6hojex",
+      "id": "8",
+      "name": "phase-0",
+      "bbox": [
+        72,
+        270,
+        330,
+        24
+      ],
+      "geometry": "rect",
+      "text": "01 · VALIDAR",
+      "textPreview": "01 · VALIDAR",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "01 · VALIDAR"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "01 · VALIDAR",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "01 · VALIDAR",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hczihofi",
+      "id": "9",
+      "name": "step-title-0",
+      "bbox": [
+        72,
+        378,
+        330,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Probar flujos completos",
+      "textPreview": "Probar flujos completos",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Probar flujos completos"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Probar flujos completos",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Probar flujos completos",
+              "fontSize": 26,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9gj21sr2",
+      "id": "10",
+      "name": "step-body-0",
+      "bbox": [
+        72,
+        456,
+        330,
+        130
+      ],
+      "geometry": "rect",
+      "text": "Autenticación → cita → historia clínica → factura → pago. Registrar evidencia de cada escenario.",
+      "textPreview": "Autenticación → cita → historia clínica → factura → pago. Registrar evidencia de cada escenario.",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Autenticación → cita → historia"
+          },
+          {
+            "index": 2,
+            "text": "clínica → factura → pago."
+          },
+          {
+            "index": 3,
+            "text": "Registrar evidencia de cada"
+          },
+          {
+            "index": 4,
+            "text": "escenario."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Autenticación → cita → historia clínica → factura → pago. Registrar evidencia de cada escenario.",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Autenticación → cita → historia clínica → factura → pago. Registrar evidencia de cada escenario.",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8fa1snax",
+      "id": "11",
+      "name": "node-1",
+      "bbox": [
+        482,
+        324,
+        18,
+        18
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ne1kzi9c",
+      "id": "12",
+      "name": "phase-1",
+      "bbox": [
+        482,
+        270,
+        330,
+        24
+      ],
+      "geometry": "rect",
+      "text": "02 · CORREGIR",
+      "textPreview": "02 · CORREGIR",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02 · CORREGIR"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02 · CORREGIR",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02 · CORREGIR",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mdsjqdsr",
+      "id": "13",
+      "name": "step-title-1",
+      "bbox": [
+        482,
+        378,
+        330,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Cerrar brechas críticas",
+      "textPreview": "Cerrar brechas críticas",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cerrar brechas críticas"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cerrar brechas críticas",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cerrar brechas críticas",
+              "fontSize": 26,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lcz2x8r6",
+      "id": "14",
+      "name": "step-body-1",
+      "bbox": [
+        482,
+        456,
+        330,
+        130
+      ],
+      "geometry": "rect",
+      "text": "Ajustar errores, completar trazabilidad y verificar permisos, datos y estados de negocio.",
+      "textPreview": "Ajustar errores, completar trazabilidad y verificar permisos, datos y estados de negocio.",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ajustar errores, completar"
+          },
+          {
+            "index": 2,
+            "text": "trazabilidad y verificar permisos,"
+          },
+          {
+            "index": 3,
+            "text": "datos y estados de negocio."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ajustar errores, completar trazabilidad y verificar permisos, datos y estados de negocio.",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ajustar errores, completar trazabilidad y verificar permisos, datos y estados de negocio.",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0bq1o3al",
+      "id": "15",
+      "name": "node-2",
+      "bbox": [
+        892,
+        324,
+        18,
+        18
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zahkvy90",
+      "id": "16",
+      "name": "phase-2",
+      "bbox": [
+        892,
+        270,
+        330,
+        24
+      ],
+      "geometry": "rect",
+      "text": "03 · PREPARAR",
+      "textPreview": "03 · PREPARAR",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "03 · PREPARAR"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "03 · PREPARAR",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "03 · PREPARAR",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y98jmtsf",
+      "id": "17",
+      "name": "step-title-2",
+      "bbox": [
+        892,
+        378,
+        330,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Planear la evolución",
+      "textPreview": "Planear la evolución",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Planear la evolución"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Planear la evolución",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Planear la evolución",
+              "fontSize": 26,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/58329cra",
+      "id": "18",
+      "name": "step-body-2",
+      "bbox": [
+        892,
+        456,
+        330,
+        130
+      ],
+      "geometry": "rect",
+      "text": "Priorizar la transición gradual hacia servicios, eventos e integración sin romper el MVP estable.",
+      "textPreview": "Priorizar la transición gradual hacia servicios, eventos e integración sin romper el MVP estable.",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Priorizar la transición gradual"
+          },
+          {
+            "index": 2,
+            "text": "hacia servicios, eventos e"
+          },
+          {
+            "index": 3,
+            "text": "integración sin romper el MVP"
+          },
+          {
+            "index": 4,
+            "text": "estable."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Priorizar la transición gradual hacia servicios, eventos e integración sin romper el MVP estable.",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Priorizar la transición gradual hacia servicios, eventos e integración sin romper el MVP estable.",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k7ul07ap",
+      "id": "19",
+      "name": "closing-band",
+      "bbox": [
+        48,
+        620,
+        1134,
+        40
+      ],
+      "geometry": "rect",
+      "fillColor": "#D0EDFA",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4b25wby1",
+      "id": "20",
+      "name": "closing-3",
+      "bbox": [
+        68,
+        628,
+        1094,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Resultado esperado: un MVP estable, probado y listo para guiar la siguiente decisión arquitectónica.",
+      "textPreview": "Resultado esperado: un MVP estable, probado y listo para guiar la siguiente decisión arquitectónica.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Resultado esperado: un MVP estable, probado y listo para guiar la siguiente decisión arquitectónica."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Resultado esperado: un MVP estable, probado y listo para guiar la siguiente decisión arquitectónica.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Resultado esperado: un MVP estable, probado y listo para guiar la siguiente decisión arquitectónica.",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

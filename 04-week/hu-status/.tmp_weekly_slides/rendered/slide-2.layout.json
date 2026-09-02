@@ -1,0 +1,994 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/ot2jdh",
+    "id": "ot2jdh",
+    "slide": 2,
+    "layoutId": "f80ba6f4-8f8e-4382-a57e-9f2f5b2da833",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "030ae295-2f8e-42c9-9949-02bcc352fdaa",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "f80ba6f4-8f8e-4382-a57e-9f2f5b2da833",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "030ae295-2f8e-42c9-9949-02bcc352fdaa",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "030ae295-2f8e-42c9-9949-02bcc352fdaa",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/j218z6dk",
+      "id": "1",
+      "name": "kicker-2",
+      "bbox": [
+        48,
+        32,
+        350,
+        24
+      ],
+      "geometry": "rect",
+      "text": "OBSTÁCULOS ENCONTRADOS",
+      "textPreview": "OBSTÁCULOS ENCONTRADOS",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "OBSTÁCULOS ENCONTRADOS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "OBSTÁCULOS ENCONTRADOS",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "OBSTÁCULOS ENCONTRADOS",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/43a9sbe5",
+      "id": "2",
+      "name": "title-2",
+      "bbox": [
+        48,
+        66,
+        1184,
+        92
+      ],
+      "geometry": "rect",
+      "text": "El reto ahora es validar, integrar y reducir brechas",
+      "textPreview": "El reto ahora es validar, integrar y reducir brechas",
+      "resolvedFontSize": 38,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 38,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "El reto ahora es validar, integrar y reducir brechas"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "El reto ahora es validar, integrar y reducir brechas",
+          "resolvedTextStyle": {
+            "fontSize": 38,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "El reto ahora es validar, integrar y reducir brechas",
+              "fontSize": 38,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/54jq1gva",
+      "id": "3",
+      "name": "rule-2",
+      "bbox": [
+        48,
+        162,
+        1184,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/65srulwv",
+      "id": "4",
+      "name": "page-2",
+      "bbox": [
+        1168,
+        672,
+        64,
+        20
+      ],
+      "geometry": "rect",
+      "text": "02",
+      "textPreview": "02",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r6183qdg",
+      "id": "5",
+      "name": "lead-2",
+      "bbox": [
+        48,
+        178,
+        650,
+        108
+      ],
+      "geometry": "rect",
+      "text": "El principal obstáculo no fue construir módulos aislados, sino asegurar que toda la solución funcione de punta a punta y que la evidencia coincida con la arquitectura planteada.",
+      "textPreview": "El principal obstáculo no fue construir módulos aislados, sino asegurar que toda la solución funcione de punta a punta y que la evidencia...",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "El principal obstáculo no fue construir módulos aislados, sino"
+          },
+          {
+            "index": 2,
+            "text": "asegurar que toda la solución funcione de punta a punta y"
+          },
+          {
+            "index": 3,
+            "text": "que la evidencia coincida con la arquitectura planteada."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "El principal obstáculo no fue construir módulos aislados, sino asegurar que toda la solución funcione de punta a punta y que la evidencia coincida con la arquitectura planteada.",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "El principal obstáculo no fue construir módulos aislados, sino asegurar que toda la solución funcione de punta a punta y que la evidencia coincida con la arquitectura planteada.",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s7a9wve1",
+      "id": "6",
+      "name": "panel-2",
+      "bbox": [
+        48,
+        322,
+        642,
+        286
+      ],
+      "geometry": "rect",
+      "fillColor": "#EDEDED",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t8jq50vm",
+      "id": "7",
+      "name": "panel-title-2",
+      "bbox": [
+        76,
+        350,
+        580,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Lo que quedó pendiente de comprobar",
+      "textPreview": "Lo que quedó pendiente de comprobar",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Lo que quedó pendiente de comprobar"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Lo que quedó pendiente de comprobar",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Lo que quedó pendiente de comprobar",
+              "fontSize": 25,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e9crylw7",
+      "id": "8",
+      "name": "panel-body-2",
+      "bbox": [
+        76,
+        410,
+        566,
+        150
+      ],
+      "geometry": "rect",
+      "text": "La documentación identifica vacíos de cobertura que todavía necesitan evidencia de implementación o verificación. Además, el MVP es monolítico, mientras que la arquitectura objetivo contempla microservicios y comunicación por eventos.",
+      "textPreview": "La documentación identifica vacíos de cobertura que todavía necesitan evidencia de implementación o verificación. Además, el MVP es monol...",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "La documentación identifica vacíos de cobertura que"
+          },
+          {
+            "index": 2,
+            "text": "todavía necesitan evidencia de implementación o"
+          },
+          {
+            "index": 3,
+            "text": "verificación. Además, el MVP es monolítico, mientras que"
+          },
+          {
+            "index": 4,
+            "text": "la arquitectura objetivo contempla microservicios y"
+          },
+          {
+            "index": 5,
+            "text": "comunicación por eventos."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "La documentación identifica vacíos de cobertura que todavía necesitan evidencia de implementación o verificación. Además, el MVP es monolítico, mientras que la arquitectura objetivo contempla microservicios y comunicación por eventos.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "La documentación identifica vacíos de cobertura que todavía necesitan evidencia de implementación o verificación. Además, el MVP es monolítico, mientras que la arquitectura objetivo contempla microservicios y comunicación por eventos.",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fal87qds",
+      "id": "9",
+      "name": "side-title-2",
+      "bbox": [
+        770,
+        204,
+        410,
+        36
+      ],
+      "geometry": "rect",
+      "text": "Brechas clave",
+      "textPreview": "Brechas clave",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Brechas clave"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Brechas clave",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Brechas clave",
+              "fontSize": 25,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jm5cn258",
+      "id": "10",
+      "name": "dot-770-272",
+      "bbox": [
+        770,
+        280,
+        8,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ilcvex4n",
+      "id": "11",
+      "name": "bullet-770-272",
+      "bbox": [
+        790,
+        272,
+        400,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Pruebas end-to-end y aceptación",
+      "textPreview": "Pruebas end-to-end y aceptación",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#111111",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Pruebas end-to-end y aceptación"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Pruebas end-to-end y aceptación",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#111111",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Pruebas end-to-end y aceptación",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#111111",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5onupcny",
+      "id": "12",
+      "name": "dot-770-346",
+      "bbox": [
+        770,
+        354,
+        8,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/knedg7md",
+      "id": "13",
+      "name": "bullet-770-346",
+      "bbox": [
+        790,
+        346,
+        400,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Validación de seguridad y rendimiento",
+      "textPreview": "Validación de seguridad y rendimiento",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#111111",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Validación de seguridad y rendimiento"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Validación de seguridad y rendimiento",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#111111",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Validación de seguridad y rendimiento",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#111111",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bylcji5w",
+      "id": "14",
+      "name": "dot-770-420",
+      "bbox": [
+        770,
+        428,
+        8,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/axcvadob",
+      "id": "15",
+      "name": "bullet-770-420",
+      "bbox": [
+        790,
+        420,
+        400,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Trazabilidad con evidencia real",
+      "textPreview": "Trazabilidad con evidencia real",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#111111",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trazabilidad con evidencia real"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trazabilidad con evidencia real",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#111111",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trazabilidad con evidencia real",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#111111",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x03ulsn2",
+      "id": "16",
+      "name": "dot-770-494",
+      "bbox": [
+        770,
+        502,
+        8,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wzudcn6h",
+      "id": "17",
+      "name": "bullet-770-494",
+      "bbox": [
+        790,
+        494,
+        400,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Preparación para evolucionar del monolito",
+      "textPreview": "Preparación para evolucionar del monolito",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#111111",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Preparación para evolucionar del"
+          },
+          {
+            "index": 2,
+            "text": "monolito"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Preparación para evolucionar del monolito",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#111111",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Preparación para evolucionar del monolito",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#111111",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fupwvm50",
+      "id": "18",
+      "name": "note-2",
+      "bbox": [
+        770,
+        586,
+        420,
+        52
+      ],
+      "geometry": "rect",
+      "text": "Aprendizaje: primero estabilizar y validar; después distribuir.",
+      "textPreview": "Aprendizaje: primero estabilizar y validar; después distribuir.",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Aprendizaje: primero estabilizar y validar;"
+          },
+          {
+            "index": 2,
+            "text": "después distribuir."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Aprendizaje: primero estabilizar y validar; después distribuir.",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Aprendizaje: primero estabilizar y validar; después distribuir.",
+              "fontSize": 19,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

@@ -1,0 +1,990 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/zeq0ox",
+    "id": "zeq0ox",
+    "slide": 2,
+    "layoutId": "39396fd2-98cd-4dff-b471-e1303288481c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "9c682e46-7aa5-41cd-bedf-bb8bc23a8b6b",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "39396fd2-98cd-4dff-b471-e1303288481c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "9c682e46-7aa5-41cd-bedf-bb8bc23a8b6b",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "9c682e46-7aa5-41cd-bedf-bb8bc23a8b6b",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fq987i5c",
+      "id": "1",
+      "name": "kicker-2",
+      "bbox": [
+        48,
+        32,
+        350,
+        24
+      ],
+      "geometry": "rect",
+      "text": "OBSTÁCULOS ENCONTRADOS",
+      "textPreview": "OBSTÁCULOS ENCONTRADOS",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "OBSTÁCULOS ENCONTRADOS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "OBSTÁCULOS ENCONTRADOS",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "OBSTÁCULOS ENCONTRADOS",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0r290nmx",
+      "id": "2",
+      "name": "title-2",
+      "bbox": [
+        48,
+        66,
+        1184,
+        92
+      ],
+      "geometry": "rect",
+      "text": "El mayor obstáculo fue mantener la congruencia del proyecto",
+      "textPreview": "El mayor obstáculo fue mantener la congruencia del proyecto",
+      "resolvedFontSize": 38,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 38,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "El mayor obstáculo fue mantener la congruencia del proyecto"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "El mayor obstáculo fue mantener la congruencia del proyecto",
+          "resolvedTextStyle": {
+            "fontSize": 38,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "El mayor obstáculo fue mantener la congruencia del proyecto",
+              "fontSize": 38,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1sba9sni",
+      "id": "3",
+      "name": "rule-2",
+      "bbox": [
+        48,
+        162,
+        1184,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mtkr2x43",
+      "id": "4",
+      "name": "page-2",
+      "bbox": [
+        1168,
+        672,
+        64,
+        20
+      ],
+      "geometry": "rect",
+      "text": "02",
+      "textPreview": "02",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nutsb258",
+      "id": "5",
+      "name": "lead-2",
+      "bbox": [
+        48,
+        178,
+        650,
+        108
+      ],
+      "geometry": "rect",
+      "text": "Había diferencias entre lo escrito, lo diseñado y lo implementado. La comunicación del equipo y la interpretación de algunos términos —incluida la brecha de contenido en inglés— dificultaron integrar una visión común.",
+      "textPreview": "Había diferencias entre lo escrito, lo diseñado y lo implementado. La comunicación del equipo y la interpretación de algunos términos —in...",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Había diferencias entre lo escrito, lo diseñado y lo implementado."
+          },
+          {
+            "index": 2,
+            "text": "La comunicación del equipo y la interpretación de algunos términos"
+          },
+          {
+            "index": 3,
+            "text": "—incluida la brecha de contenido en inglés— dificultaron integrar"
+          },
+          {
+            "index": 4,
+            "text": "una visión común."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Había diferencias entre lo escrito, lo diseñado y lo implementado. La comunicación del equipo y la interpretación de algunos términos —incluida la brecha de contenido en inglés— dificultaron integrar una visión común.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Había diferencias entre lo escrito, lo diseñado y lo implementado. La comunicación del equipo y la interpretación de algunos términos —incluida la brecha de contenido en inglés— dificultaron integrar una visión común.",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ov2947mt",
+      "id": "6",
+      "name": "panel-2",
+      "bbox": [
+        48,
+        322,
+        642,
+        286
+      ],
+      "geometry": "rect",
+      "fillColor": "#EDEDED",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9wbadcne",
+      "id": "7",
+      "name": "panel-title-2",
+      "bbox": [
+        76,
+        350,
+        580,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Integrar significaba volver a revisar",
+      "textPreview": "Integrar significaba volver a revisar",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Integrar significaba volver a revisar"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Integrar significaba volver a revisar",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Integrar significaba volver a revisar",
+              "fontSize": 25,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ahkr6h4z",
+      "id": "8",
+      "name": "panel-body-2",
+      "bbox": [
+        76,
+        410,
+        566,
+        150
+      ],
+      "geometry": "rect",
+      "text": "Cada cambio en una regla del negocio afectaba requisitos, trazabilidad, pantallas y comportamiento del monolito. El reto fue comunicar esos cambios y comprobar que todos los entregables siguieran siendo congruentes entre sí.",
+      "textPreview": "Cada cambio en una regla del negocio afectaba requisitos, trazabilidad, pantallas y comportamiento del monolito. El reto fue comunicar es...",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cada cambio en una regla del negocio afectaba requisitos,"
+          },
+          {
+            "index": 2,
+            "text": "trazabilidad, pantallas y comportamiento del monolito. El reto"
+          },
+          {
+            "index": 3,
+            "text": "fue comunicar esos cambios y comprobar que todos los"
+          },
+          {
+            "index": 4,
+            "text": "entregables siguieran siendo congruentes entre sí."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cada cambio en una regla del negocio afectaba requisitos, trazabilidad, pantallas y comportamiento del monolito. El reto fue comunicar esos cambios y comprobar que todos los entregables siguieran siendo congruentes entre sí.",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cada cambio en una regla del negocio afectaba requisitos, trazabilidad, pantallas y comportamiento del monolito. El reto fue comunicar esos cambios y comprobar que todos los entregables siguieran siendo congruentes entre sí.",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bidsf25k",
+      "id": "9",
+      "name": "side-title-2",
+      "bbox": [
+        770,
+        204,
+        410,
+        36
+      ],
+      "geometry": "rect",
+      "text": "Brechas que enfrentamos",
+      "textPreview": "Brechas que enfrentamos",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Brechas que enfrentamos"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Brechas que enfrentamos",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Brechas que enfrentamos",
+              "fontSize": 25,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3m1wre5o",
+      "id": "10",
+      "name": "dot-770-272",
+      "bbox": [
+        770,
+        280,
+        8,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2lsfy9o3",
+      "id": "11",
+      "name": "bullet-770-272",
+      "bbox": [
+        790,
+        272,
+        400,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Interpretaciones distintas de las reglas",
+      "textPreview": "Interpretaciones distintas de las reglas",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#111111",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Interpretaciones distintas de las reglas"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Interpretaciones distintas de las reglas",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#111111",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Interpretaciones distintas de las reglas",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#111111",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pojetone",
+      "id": "12",
+      "name": "dot-770-346",
+      "bbox": [
+        770,
+        354,
+        8,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4nax0j6t",
+      "id": "13",
+      "name": "bullet-770-346",
+      "bbox": [
+        790,
+        346,
+        400,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Contenido y términos sin unificar",
+      "textPreview": "Contenido y términos sin unificar",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#111111",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Contenido y términos sin unificar"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Contenido y términos sin unificar",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#111111",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Contenido y términos sin unificar",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#111111",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fi1wne5c",
+      "id": "14",
+      "name": "dot-770-420",
+      "bbox": [
+        770,
+        428,
+        8,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/uh8fu9or",
+      "id": "15",
+      "name": "bullet-770-420",
+      "bbox": [
+        790,
+        420,
+        400,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Dudas sobre la integración entre módulos",
+      "textPreview": "Dudas sobre la integración entre módulos",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#111111",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Dudas sobre la integración entre módulos"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Dudas sobre la integración entre módulos",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#111111",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Dudas sobre la integración entre módulos",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#111111",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hkjep4ni",
+      "id": "16",
+      "name": "dot-770-494",
+      "bbox": [
+        770,
+        502,
+        8,
+        8
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gjaxwz6x",
+      "id": "17",
+      "name": "bullet-770-494",
+      "bbox": [
+        790,
+        494,
+        400,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Trazabilidad que debía actualizarse",
+      "textPreview": "Trazabilidad que debía actualizarse",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#111111",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Trazabilidad que debía actualizarse"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Trazabilidad que debía actualizarse",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#111111",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Trazabilidad que debía actualizarse",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#111111",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zelgzy5g",
+      "id": "18",
+      "name": "note-2",
+      "bbox": [
+        770,
+        580,
+        420,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Aprendizaje: comunicar cada cambio y validar su impacto en todo el producto.",
+      "textPreview": "Aprendizaje: comunicar cada cambio y validar su impacto en todo el producto.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Aprendizaje: comunicar cada cambio y validar"
+          },
+          {
+            "index": 2,
+            "text": "su impacto en todo el producto."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Aprendizaje: comunicar cada cambio y validar su impacto en todo el producto.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Aprendizaje: comunicar cada cambio y validar su impacto en todo el producto.",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

@@ -1,0 +1,1144 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/zo05q9",
+    "id": "zo05q9",
+    "slide": 3,
+    "layoutId": "39396fd2-98cd-4dff-b471-e1303288481c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "9c682e46-7aa5-41cd-bedf-bb8bc23a8b6b",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "39396fd2-98cd-4dff-b471-e1303288481c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "9c682e46-7aa5-41cd-bedf-bb8bc23a8b6b",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "9c682e46-7aa5-41cd-bedf-bb8bc23a8b6b",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4zmh0bat",
+      "id": "1",
+      "name": "kicker-3",
+      "bbox": [
+        48,
+        32,
+        350,
+        24
+      ],
+      "geometry": "rect",
+      "text": "QUÉ HAREMOS ESTA SEMANA",
+      "textPreview": "QUÉ HAREMOS ESTA SEMANA",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "QUÉ HAREMOS ESTA SEMANA"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "QUÉ HAREMOS ESTA SEMANA",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "QUÉ HAREMOS ESTA SEMANA",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3ed0r698",
+      "id": "2",
+      "name": "title-3",
+      "bbox": [
+        48,
+        66,
+        1184,
+        92
+      ],
+      "geometry": "rect",
+      "text": "Cerraremos el corte 1 y prepararemos la evolución",
+      "textPreview": "Cerraremos el corte 1 y prepararemos la evolución",
+      "resolvedFontSize": 38,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 38,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cerraremos el corte 1 y prepararemos la evolución"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cerraremos el corte 1 y prepararemos la evolución",
+          "resolvedTextStyle": {
+            "fontSize": 38,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cerraremos el corte 1 y prepararemos la evolución",
+              "fontSize": 38,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2d4zy1sn",
+      "id": "3",
+      "name": "rule-3",
+      "bbox": [
+        48,
+        162,
+        1184,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hcvipwri",
+      "id": "4",
+      "name": "page-3",
+      "bbox": [
+        1168,
+        672,
+        64,
+        20
+      ],
+      "geometry": "rect",
+      "text": "03",
+      "textPreview": "03",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "03",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "03",
+              "fontSize": 14,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gbmhwrax",
+      "id": "5",
+      "name": "lead-3",
+      "bbox": [
+        48,
+        176,
+        1080,
+        52
+      ],
+      "geometry": "rect",
+      "text": "La prioridad es entregar el monolito como cierre del primer corte, corregir las brechas restantes y usar el MVP como base para la evaluación arquitectónica.",
+      "textPreview": "La prioridad es entregar el monolito como cierre del primer corte, corregir las brechas restantes y usar el MVP como base para la evaluac...",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "La prioridad es entregar el monolito como cierre del primer corte, corregir las brechas restantes y usar el MVP"
+          },
+          {
+            "index": 2,
+            "text": "como base para la evaluación arquitectónica."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "La prioridad es entregar el monolito como cierre del primer corte, corregir las brechas restantes y usar el MVP como base para la evaluación arquitectónica.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "La prioridad es entregar el monolito como cierre del primer corte, corregir las brechas restantes y usar el MVP como base para la evaluación arquitectónica.",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fad03m9c",
+      "id": "6",
+      "name": "timeline",
+      "bbox": [
+        72,
+        332,
+        1110,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u9kzuhsr",
+      "id": "7",
+      "name": "node-0",
+      "bbox": [
+        72,
+        324,
+        18,
+        18
+      ],
+      "geometry": "rect",
+      "fillColor": "#3D8DFF",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/t8bi1cr6",
+      "id": "8",
+      "name": "phase-0",
+      "bbox": [
+        72,
+        270,
+        330,
+        24
+      ],
+      "geometry": "rect",
+      "text": "01 · ENTREGAR",
+      "textPreview": "01 · ENTREGAR",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "01 · ENTREGAR"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "01 · ENTREGAR",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "01 · ENTREGAR",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s72hsral",
+      "id": "9",
+      "name": "step-title-0",
+      "bbox": [
+        72,
+        378,
+        330,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Cerrar el monolito",
+      "textPreview": "Cerrar el monolito",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Cerrar el monolito"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Cerrar el monolito",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cerrar el monolito",
+              "fontSize": 26,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2pcr61o7",
+      "id": "10",
+      "name": "step-body-0",
+      "bbox": [
+        72,
+        456,
+        330,
+        130
+      ],
+      "geometry": "rect",
+      "text": "Presentar y entregar el MVP monolítico para cerrar el corte 1 con una versión funcional y demostrable.",
+      "textPreview": "Presentar y entregar el MVP monolítico para cerrar el corte 1 con una versión funcional y demostrable.",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Presentar y entregar el MVP"
+          },
+          {
+            "index": 2,
+            "text": "monolítico para cerrar el corte 1"
+          },
+          {
+            "index": 3,
+            "text": "con una versión funcional y"
+          },
+          {
+            "index": 4,
+            "text": "demostrable."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Presentar y entregar el MVP monolítico para cerrar el corte 1 con una versión funcional y demostrable.",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Presentar y entregar el MVP monolítico para cerrar el corte 1 con una versión funcional y demostrable.",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3qlsf6ps",
+      "id": "11",
+      "name": "node-1",
+      "bbox": [
+        482,
+        324,
+        18,
+        18
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4re98b6d",
+      "id": "12",
+      "name": "phase-1",
+      "bbox": [
+        482,
+        270,
+        330,
+        24
+      ],
+      "geometry": "rect",
+      "text": "02 · INTEGRAR",
+      "textPreview": "02 · INTEGRAR",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02 · INTEGRAR"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02 · INTEGRAR",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02 · INTEGRAR",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/psnahg7i",
+      "id": "13",
+      "name": "step-title-1",
+      "bbox": [
+        482,
+        378,
+        330,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Asegurar los flujos",
+      "textPreview": "Asegurar los flujos",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Asegurar los flujos"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Asegurar los flujos",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Asegurar los flujos",
+              "fontSize": 26,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/u1cr21ov",
+      "id": "14",
+      "name": "step-body-1",
+      "bbox": [
+        482,
+        456,
+        330,
+        130
+      ],
+      "geometry": "rect",
+      "text": "Corregir brechas, revisar la comunicación entre módulos y comprobar los recorridos completos del sistema.",
+      "textPreview": "Corregir brechas, revisar la comunicación entre módulos y comprobar los recorridos completos del sistema.",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Corregir brechas, revisar la"
+          },
+          {
+            "index": 2,
+            "text": "comunicación entre módulos y"
+          },
+          {
+            "index": 3,
+            "text": "comprobar los recorridos"
+          },
+          {
+            "index": 4,
+            "text": "completos del sistema."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Corregir brechas, revisar la comunicación entre módulos y comprobar los recorridos completos del sistema.",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Corregir brechas, revisar la comunicación entre módulos y comprobar los recorridos completos del sistema.",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/f2lsb6pg",
+      "id": "15",
+      "name": "node-2",
+      "bbox": [
+        892,
+        324,
+        18,
+        18
+      ],
+      "geometry": "rect",
+      "fillColor": "#111111",
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g3u94b61",
+      "id": "16",
+      "name": "phase-2",
+      "bbox": [
+        892,
+        270,
+        330,
+        24
+      ],
+      "geometry": "rect",
+      "text": "03 · EVOLUCIONAR",
+      "textPreview": "03 · EVOLUCIONAR",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 16,
+        "typeface": "Arial",
+        "color": "#3D8DFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "03 · EVOLUCIONAR"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "03 · EVOLUCIONAR",
+          "resolvedTextStyle": {
+            "fontSize": 16,
+            "typeface": "Arial",
+            "color": "#3D8DFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "03 · EVOLUCIONAR",
+              "fontSize": 16,
+              "typeface": "Arial",
+              "color": "#3D8DFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ho3adw7m",
+      "id": "17",
+      "name": "step-title-2",
+      "bbox": [
+        892,
+        378,
+        330,
+        58
+      ],
+      "geometry": "rect",
+      "text": "Preparar microservicios",
+      "textPreview": "Preparar microservicios",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Preparar microservicios"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Preparar microservicios",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Preparar microservicios",
+              "fontSize": 26,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/6xsryhoz",
+      "id": "18",
+      "name": "step-body-2",
+      "bbox": [
+        892,
+        456,
+        330,
+        130
+      ],
+      "geometry": "rect",
+      "text": "Evaluar cómo separar capacidades del MVP e iniciar una transición gradual hacia una arquitectura de microservicios.",
+      "textPreview": "Evaluar cómo separar capacidades del MVP e iniciar una transición gradual hacia una arquitectura de microservicios.",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Arial",
+        "color": "#5F6670",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Evaluar cómo separar"
+          },
+          {
+            "index": 2,
+            "text": "capacidades del MVP e iniciar una"
+          },
+          {
+            "index": 3,
+            "text": "transición gradual hacia una"
+          },
+          {
+            "index": 4,
+            "text": "arquitectura de microservicios."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Evaluar cómo separar capacidades del MVP e iniciar una transición gradual hacia una arquitectura de microservicios.",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Arial",
+            "color": "#5F6670",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Evaluar cómo separar capacidades del MVP e iniciar una transición gradual hacia una arquitectura de microservicios.",
+              "fontSize": 20,
+              "typeface": "Arial",
+              "color": "#5F6670",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7y1s7mpk",
+      "id": "19",
+      "name": "closing-band",
+      "bbox": [
+        48,
+        620,
+        1134,
+        40
+      ],
+      "geometry": "rect",
+      "fillColor": "#D0EDFA",
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b2hofi5c",
+      "id": "20",
+      "name": "closing-3",
+      "bbox": [
+        68,
+        628,
+        1094,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Resultado esperado: corte 1 cerrado y una ruta clara para evolucionar el MVP sin perder coherencia.",
+      "textPreview": "Resultado esperado: corte 1 cerrado y una ruta clara para evolucionar el MVP sin perder coherencia.",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Arial",
+        "color": "#111111",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "insets": {
+          "top": 4.8,
+          "right": 9.6,
+          "bottom": 4.8,
+          "left": 9.6
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Resultado esperado: corte 1 cerrado y una ruta clara para evolucionar el MVP sin perder coherencia."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Resultado esperado: corte 1 cerrado y una ruta clara para evolucionar el MVP sin perder coherencia.",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Arial",
+            "color": "#111111",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Resultado esperado: corte 1 cerrado y una ruta clara para evolucionar el MVP sin perder coherencia.",
+              "fontSize": 18,
+              "typeface": "Arial",
+              "color": "#111111",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}
