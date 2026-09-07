@@ -15,9 +15,9 @@
 
 | HU ID | Title | Status (todo/doing/done) | Evidence (PR or commit URL) |
 |---|---|---|---|
-| HU-00 | Document Distributed Systems Session 1 concepts through a summary diagram | done | YOUR_COMMIT_URL |
-| HU-00 | Document Distributed Systems Session 2 concepts through a summary diagram | done | YOUR_COMMIT_URL |
-| HU-00 | Study and document Agile, Scrum, Kanban, and User Stories concepts | done | YOUR_COMMIT_URL |
+| HU-00 | Document Distributed Systems Session 1 concepts through a summary diagram | done | https://github.com/code-corhuila/dlc-docs.git |
+| HU-00 | Document Distributed Systems Session 2 concepts through a summary diagram | done | https://github.com/code-corhuila/dlc-docs.git |
+| HU-00 | Study and document Agile, Scrum, Kanban, and User Stories concepts | done | https://github.com/code-corhuila/dlc-docs.git|
 
 ## 2. My individual contribution
 
