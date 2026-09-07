@@ -16,14 +16,14 @@
 
 | HU ID      | Title                                      | Status (todo/doing/done) | Evidence (PR or commit URL) |
 | ---------- | ------------------------------------------ | ------------------------ | --------------------------- |
-| HU-IAM-001 | Staff authentication and authorized access | done                     | Add PR or commit URL        |
-| HU-IAM-002 | Staff role management and authorization    | done                     | Add PR or commit URL        |
-| HU-CLN-001 | Patient registration and search            | done                     | Add PR or commit URL        |
-| HU-APT-001 | Appointment scheduling                     | done                     | Add PR or commit URL        |
-| HU-APT-003 | Dentist availability                       | done                     | Add PR or commit URL        |
-| HU-CLN-002 | Clinical history management                | done                     | Add PR or commit URL        |
-| HU-BIL-001 | Billing and invoice generation             | done                     | Add PR or commit URL        |
-| HU-PAY-001 | Payment registration                       | done                     | Add PR or commit URL        |
+| HU-IAM-001 | Staff authentication and authorized access | done                     | https://github.com/code-corhuila/di-lucca.git|
+| HU-IAM-002 | Staff role management and authorization    | done                     | https://github.com/code-corhuila/di-lucca.git|
+| HU-CLN-001 | Patient registration and search            | done                     | https://github.com/code-corhuila/di-lucca.git|
+| HU-APT-001 | Appointment scheduling                     | done                     | https://github.com/code-corhuila/di-lucca.git|
+| HU-APT-003 | Dentist availability                       | done                     | https://github.com/code-corhuila/di-lucca.git|
+| HU-CLN-002 | Clinical history management                | done                     | https://github.com/code-corhuila/di-lucca.git|
+| HU-BIL-001 | Billing and invoice generation             | done                     | https://github.com/code-corhuila/di-lucca.git|
+| HU-PAY-001 | Payment registration                       | done                     | https://github.com/code-corhuila/di-lucca.git|
 
 ## 2. My individual contribution
 
