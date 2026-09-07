@@ -20,9 +20,9 @@
 
 | HU ID       | Title                                                                      | Status (todo/doing/done) | Evidence (PR or commit URL) |
 | ----------- | -------------------------------------------------------------------------- | ------------------------ | --------------------------- |
-| HU-ARCH-001 | Define the initial architecture and microservice boundaries of OdontoSys   | done                     | YOUR_COMMIT_URL             |
-| HU-APT-001  | Define the responsibilities and main operations of the Appointment Service | done                     | YOUR_COMMIT_URL             |
-| HU-ARCH-002 | Define independent persistence for the main OdontoSys microservices        | done                     | YOUR_COMMIT_URL             |
+| HU-ARCH-001 | Define the initial architecture and microservice boundaries of OdontoSys   | done                     | NA             |
+| HU-APT-001  | Define the responsibilities and main operations of the Appointment Service | done                     | NA             |
+| HU-ARCH-002 | Define independent persistence for the main OdontoSys microservices        | done                     | NA             |
 
 ## 2. My individual contribution
 
