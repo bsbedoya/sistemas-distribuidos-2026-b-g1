@@ -80,5 +80,5 @@
 ## 6. Evidence links
 
 * Architecture and microservices documentation: `02_arquitectura_y_microservicios.md`
-* Architecture documentation commit: YOUR_COMMIT_URL
+* Architecture documentation commit: Architecture documentation commit: N/A — commit evidence was not required for this stage.
 * Course learning material (OVAs): https://code-corhuila.github.io/ova-web/2026-B/distribuidos/
