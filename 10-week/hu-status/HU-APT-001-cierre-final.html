@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Informe de cierre frontend HU-APT-001: disponibilidad y agendamiento de citas odontológicas.">
+  <title>HU-APT-001 · Informe de cierre frontend</title>
+  <style>
+    :root { color-scheme: light; --ink:#15263d; --muted:#64748b; --soft:#f3f6fb; --line:#dde5f0; --navy:#102b4a; --teal:#087b74; --teal-bg:#e8f7f2; --gold:#9a6508; --gold-bg:#fff5dc; --white:#fff; }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#eff3f8;color:var(--ink);font:15px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}a{color:#126cb2;text-decoration:none}a:hover{text-decoration:underline}
+    .hero{color:white;background:linear-gradient(120deg,#0d2849 10%,#153d5a 66%,#096966);padding:48px 26px 95px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ffffff25;border-radius:50%;right:-130px;top:-230px;box-shadow:0 0 0 55px #ffffff08,0 0 0 115px #ffffff08}.wrap{width:min(1100px,calc(100% - 40px));margin:auto}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:800;text-transform:uppercase;opacity:.75}.hero h1{font-size:clamp(29px,5vw,48px);line-height:1.13;letter-spacing:-1.4px;margin:14px 0 12px;max-width:800px}.hero .lead{max-width:700px;font-size:17px;color:#d4e5ef;margin:0 0 23px}.meta{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.chip{border:1px solid #ffffff4d;background:#ffffff12;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700}.paper{width:min(1100px,calc(100% - 40px));margin:-58px auto 60px;position:relative;z-index:1}.ribbon{background:white;border:1px solid var(--line);border-radius:19px;padding:27px 30px;box-shadow:0 12px 32px #12253a0c}.ribbon-head{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}.status{display:inline-flex;align-items:center;gap:8px;color:#076a52;font-size:12px;font-weight:800;background:var(--teal-bg);padding:7px 13px;border-radius:999px}.dot{width:8px;height:8px;border-radius:50%;background:#06a17a}.ribbon p{margin:12px 0 0;color:#52637a}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin:23px 0 30px}.metric{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 6px 16px #142b4b06}.metric .value{font-size:31px;font-weight:850;letter-spacing:-1px;line-height:1.2;color:var(--navy)}.metric .name{color:#687a90;font-weight:650;font-size:12px;margin-top:8px}.metric .detail{color:#087b74;font-size:11px;font-weight:700;margin-top:8px}.layout{display:grid;grid-template-columns:215px minmax(0,1fr);gap:23px;align-items:start}.sidebar{position:sticky;top:20px;background:white;border:1px solid var(--line);border-radius:16px;padding:20px}.sidebar strong{font-size:11px;text-transform:uppercase;letter-spacing:1.3px;color:#718299}.sidebar a{display:block;color:#415570;font-size:13px;padding:8px 9px;margin-top:4px;border-radius:8px}.sidebar a:hover{background:#eff6fa;text-decoration:none;color:#087b74}.contents{display:grid;gap:20px;min-width:0}.section{background:white;border:1px solid var(--line);border-radius:16px;padding:29px 32px;box-shadow:0 5px 18px #142b4b05;min-width:0}.section h2{margin:0 0 13px;font-size:22px;line-height:1.3;letter-spacing:-.45px}.section h2 .n{font-size:12px;background:#ebf1f7;color:#53708c;border-radius:7px;padding:6px 9px;margin-right:10px;vertical-align:3px}.section p{color:#485b71;margin:12px 0}.section h3{font-size:15px;margin:25px 0 9px;color:#123554}.callout{border-left:4px solid var(--teal);background:#eff9f5;padding:15px 19px;border-radius:0 10px 10px 0;color:#25574f;margin:20px 0}.callout.warn{border-color:#d69c33;background:var(--gold-bg);color:#6f511b}.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:11px;margin-top:17px}table{border-collapse:collapse;width:100%;min-width:560px;font-size:13px}th{background:#f4f7fb;color:#415773;font-weight:800;text-align:left}td,th{padding:12px 15px;border-bottom:1px solid var(--line);vertical-align:top}tbody tr:last-child td{border-bottom:none}tbody tr:nth-child(even){background:#fcfdff}.ok{font-weight:750;color:#087b74;white-space:nowrap}.pending{font-weight:750;color:#98600a}.code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;background:#eef2f7;padding:2px 5px;border-radius:5px;overflow-wrap:anywhere}.step-list{padding-left:22px}.step-list li{margin:11px 0;color:#475b70}.footer{color:#728098;font-size:12px;padding:21px 6px 0;text-align:center}.btn-print{display:inline-flex;border:none;align-items:center;gap:8px;border-radius:9px;color:#173c56;background:white;padding:10px 15px;font:700 12px system-ui;cursor:pointer}.btn-print:hover{background:#ebf5f5}.hero-top{display:flex;justify-content:space-between;align-items:center;gap:18px}.closing{border:1px solid #c5e8dd;border-radius:12px;background:#f0faf6;padding:22px;margin-top:18px}.closing strong{color:#076b53}.fine{font-size:12px;color:#70829a}.ref{font-size:12px;color:#61748c;padding-top:14px;border-top:1px solid var(--line);margin-top:22px}
+    @media(max-width:850px){.layout{display:block}.sidebar{position:static;margin-bottom:20px}.sidebar a{display:inline-block}.metrics{grid-template-columns:repeat(2,1fr)}.section{padding:23px 20px}.hero{padding:34px 20px 85px}.ribbon{padding:23px}}
+    @media(max-width:500px){.metrics{grid-template-columns:1fr 1fr;gap:10px}.metric{padding:15px}.metric .value{font-size:24px}.hero h1{font-size:31px}.paper,.wrap{width:calc(100% - 24px)}.ribbon{padding:20px}}
+    @media print{body{background:white;font-size:11px}.hero{padding:28px 0 35px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.hero h1{font-size:30px}.paper{width:100%;margin:0}.wrap{width:100%}.ribbon,.metric,.section{box-shadow:none;border-color:#ccd8e3}.metrics{grid-template-columns:repeat(4,1fr)}.sidebar,.btn-print{display:none}.layout{display:block}.section{break-inside:avoid;page-break-inside:avoid;padding:18px 22px;margin-top:14px}.contents{gap:0}table{font-size:10px;min-width:0}td,th{padding:7px 9px}.section h2{font-size:18px}.section h3{margin:14px 0 7px}.hero:after{display:none}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-top"><div class="eyebrow">Informe técnico de cierre · 09.10.2026</div><button class="btn-print" type="button" onclick="window.print()" aria-label="Imprimir o guardar como PDF">⎙ &nbsp;Imprimir / PDF</button></div>
+      <h1>HU-APT-001<br>Disponibilidad y agendamiento de citas</h1>
+      <p class="lead">Cierre del trabajo frontend planificado y verificación local. Evidencias, contratos API, dependencias externas y decisión de aceptación.</p>
+      <div class="meta"><span class="chip">code-corhuila/dlc-appointments-portal</span><span class="chip">Rama develop · c958362</span><span class="chip">A1–A12 · Cierre frontend</span></div>
+    </div>
+  </header>
+  <div class="paper">
+    <div class="ribbon">
+      <div class="ribbon-head"><strong>Resultado de la verificación</strong><span class="status"><span class="dot"></span> Frontend validado localmente</span></div>
+      <p>La implementación planificada está integrada y validada con pruebas automatizadas. <strong>La integración funcional extremo a extremo sigue pendiente</strong> por dependencias de IAM y servicios reales.</p>
+    </div>
+    <div class="metrics" aria-label="Indicadores principales">
+      <div class="metric"><div class="value">169/169</div><div class="name">Pruebas automatizadas</div><div class="detail">✓ Todas aprobadas</div></div>
+      <div class="metric"><div class="value">30/30</div><div class="name">Archivos de pruebas</div><div class="detail">✓ Sin fallos</div></div>
+      <div class="metric"><div class="value">OK</div><div class="name">Compilación Angular</div><div class="detail">✓ Build exitoso</div></div>
+      <div class="metric"><div class="value">Limpio</div><div class="name">Estado de Git</div><div class="detail">✓ Sin cambios pendientes</div></div>
+    </div>
+    <div class="layout">
+      <nav class="sidebar" aria-label="Contenido del informe">
+        <strong>Contenido</strong>
+        <a href="#resumen">01 · Resumen</a><a href="#indicadores">02 · Indicadores</a><a href="#funcionalidades">03 · Funcionalidades</a><a href="#api">04 · Contratos API</a><a href="#evidencia">05 · Evidencia</a><a href="#dependencias">06 · Dependencias</a><a href="#advertencias">07 · Advertencias</a><a href="#cierre">08 · Conclusión</a>
+      </nav>
+      <main class="contents">
+        <section class="section" id="resumen"><h2><span class="n">01</span>Resumen ejecutivo</h2>
+          <p>Se completó el desarrollo frontend previsto para consultar y administrar la disponibilidad de odontólogos y agendar citas. El portal incluye búsqueda de pacientes activos, selección del profesional, fecha y horario, validación de intervalos, guardado de disponibilidad y solicitudes de creación de citas mediante contratos API.</p>
+          <p>Tras fusionar A11, se verificó la rama <span class="code">develop</span>: <strong>169 pruebas aprobadas, compilación de producción exitosa y árbol Git limpio</strong>. Las pruebas utilizan dobles de prueba para las dependencias, por lo que no certifican la operación con los microservicios reales.</p>
+          <div class="callout"><strong>Decisión de alcance:</strong> se cierra el plan frontend A1–A12; no se declara la aceptación funcional extremo a extremo de HU-APT-001.</div>
+        </section>
+        <section class="section" id="indicadores"><h2><span class="n">02</span>Indicadores de validación</h2>
+          <div class="table-scroll"><table><thead><tr><th>Indicador</th><th>Resultado</th><th>Evidencia</th></tr></thead><tbody>
+          <tr><td>Pruebas automatizadas</td><td class="ok">169/169 aprobadas</td><td><span class="code">npm test -- --watch=false</span></td></tr>
+          <tr><td>Archivos de pruebas</td><td class="ok">30/30 aprobados</td><td>Salida final de Vitest</td></tr>
+          <tr><td>Compilación de producción</td><td class="ok">Exitosa</td><td><span class="code">npm run build</span></td></tr>
+          <tr><td>Árbol de trabajo</td><td class="ok">Limpio</td><td><span class="code">git status --short</span> sin salida</td></tr>
+          <tr><td>Fusión de A11</td><td class="ok">Integrada</td><td>Fast-forward de <span class="code">436c7f8</span> a <span class="code">c958362</span></td></tr>
+          <tr><td>Advertencias del build</td><td class="pending">2 no bloqueantes</td><td>Presupuesto de CSS</td></tr>
+          </tbody></table></div>
+        </section>
+        <section class="section" id="funcionalidades"><h2><span class="n">03</span>Funcionalidades verificadas</h2>
+          <div class="table-scroll"><table><thead><tr><th>Funcionalidad</th><th>Estado frontend</th><th>Alcance verificado</th></tr></thead><tbody>
+          <tr><td>Consulta de disponibilidad</td><td class="ok">Implementada</td><td>Cliente HTTP y respuestas simuladas</td></tr>
+          <tr><td>Creación y edición de turnos</td><td class="ok">Implementada</td><td>Interacción, guardado y pruebas locales</td></tr>
+          <tr><td>Validación de horarios y solapamientos</td><td class="ok">Implementada</td><td>Reglas de intervalos y pruebas de regresión</td></tr>
+          <tr><td>Exclusión de intervalos bloqueados</td><td class="ok">Implementada</td><td>Cálculo de horarios disponibles</td></tr>
+          <tr><td>Zona horaria de la clínica</td><td class="ok">Implementada</td><td>Configuración y fechas locales</td></tr>
+          <tr><td>Búsqueda de pacientes activos</td><td class="ok">Implementada</td><td>Filtro <span class="code">status=ACTIVE</span></td></tr>
+          <tr><td>Selección de paciente, odontólogo y horario</td><td class="ok">Implementada</td><td>Estado e interacción del formulario</td></tr>
+          <tr><td>Protección frente a selección obsoleta</td><td class="ok">Implementada</td><td>Prueba nueva de A11</td></tr>
+          <tr><td>Nombre del odontólogo en resumen</td><td class="ok">Implementada</td><td>Prueba A11 con directorio inyectado</td></tr>
+          <tr><td>Creación de citas e idempotencia</td><td class="ok">Implementada</td><td>Contrato POST y cabecera; API simulada</td></tr>
+          <tr><td>Tratamiento de errores y conflictos</td><td class="ok">Implementado</td><td>Validación, conflicto, permisos y servicio no disponible</td></tr>
+          <tr><td>Pruebas de regresión</td><td class="ok">Aprobadas</td><td>169/169</td></tr>
+          </tbody></table></div>
+          <p class="fine"><strong>Lectura del estado:</strong> «Implementada» describe el código frontend verificado localmente; no equivale a disponibilidad demostrada del backend real.</p>
+        </section>
+        <section class="section" id="api"><h2><span class="n">04</span>Contratos API examinados</h2>
+          <div class="table-scroll"><table><thead><tr><th>Método</th><th>Ruta</th><th>Finalidad</th></tr></thead><tbody>
+          <tr><td><strong>GET</strong></td><td><span class="code">/api/v1/dentists/{id}/availability</span></td><td>Consultar disponibilidad</td></tr>
+          <tr><td><strong>PUT</strong></td><td><span class="code">/api/v1/dentists/{id}/availability</span></td><td>Actualizar disponibilidad y bloqueos</td></tr>
+          <tr><td><strong>POST</strong></td><td><span class="code">/api/v1/appointments</span></td><td>Crear cita</td></tr>
+          <tr><td><strong>GET</strong></td><td><span class="code">/api/v1/patients</span></td><td>Buscar por <span class="code">search</span>, <span class="code">status</span>, <span class="code">page</span>, <span class="code">limit</span></td></tr>
+          <tr><td><strong>GET</strong></td><td><span class="code">/api/v1/patients/{id}</span></td><td>Consultar paciente por ID</td></tr>
+          </tbody></table></div>
+          <p>La creación de citas envía la cabecera <span class="code">Idempotency-Key</span>. Los clientes emplean rutas relativas <span class="code">/api/v1</span> y Angular <span class="code">HttpClient</span> inyectado. Estos servicios no gestionan tokens ni sesiones.</p>
+          <div class="callout warn"><strong>Límite de alcance:</strong> la existencia de métodos HTTP para confirmación, cancelación, reprogramación u operaciones clínicas no significa que las interfaces de HU-APT-002/003/004 estén terminadas o aceptadas dentro de HU-APT-001.</div>
+        </section>
+        <section class="section" id="evidencia"><h2><span class="n">05</span>Evidencias de cierre técnico</h2>
+          <ol class="step-list">
+            <li><strong>Integración:</strong> <span class="code">git pull --ff-only origin develop</span> actualizó de <span class="code">436c7f8</span> a <span class="code">c958362</span>.</li>
+            <li><strong>Pruebas:</strong> salida final <span class="code">Test Files 30 passed (30)</span> y <span class="code">Tests 169 passed (169)</span>.</li>
+            <li><strong>Producción:</strong> <span class="code">npm run build</span> generó el paquete en <span class="code">dist/dlc-appointments-portal</span>.</li>
+            <li><strong>Estado del repositorio:</strong> <span class="code">git status --short</span> no produjo salida.</li>
+            <li><strong>Trazabilidad A11:</strong> commit <span class="code">9672e02</span> — <span class="code">fix(scheduling): keep patient and dentist selections consistent</span>.</li>
+          </ol>
+          <p><strong>Tipo de evidencia:</strong> pruebas unitarias y de componente con dependencias simuladas. No se presentó prueba integral con IAM, servicio de pacientes, agenda y gateway reales; tampoco evidencia de emisión de eventos por el backend.</p>
+        </section>
+        <section class="section" id="dependencias"><h2><span class="n">06</span>Dependencias y riesgos abiertos</h2>
+          <div class="table-scroll"><table><thead><tr><th>Dependencia</th><th>Situación</th><th>Validación pendiente</th></tr></thead><tbody>
+          <tr><td><strong>IAM / directorio odontólogos</strong></td><td>Proveedor por defecto devuelve una lista vacía <span class="code">[]</span></td><td>Integrar directorio autorizado y comprobar roles</td></tr>
+          <tr><td><strong>Servicio de pacientes</strong></td><td>Cliente implementado, sin demostración de integración real</td><td>Búsqueda de activos, paginación, permisos y respuesta</td></tr>
+          <tr><td><strong>Servicio de citas y disponibilidad</strong></td><td>Endpoints definidos, comportamiento probado con simulaciones</td><td>Persistencia, concurrencia y conflictos reales</td></tr>
+          <tr><td><strong>Autenticación y gateway</strong></td><td>Flujo integrado no verificado</td><td>Accesos por rol y resolución de rutas</td></tr>
+          <tr><td><strong>Evento de cita creada</strong></td><td>Responsabilidad del backend; no observado en este cierre</td><td>Evidencia de publicación y consumo cuando aplique</td></tr>
+          </tbody></table></div>
+          <div class="callout warn">Estas dependencias <strong>no justifican ampliar A12 ni inventar endpoints o datos</strong>. Deben gestionarse con los equipos responsables de los otros servicios.</div>
+        </section>
+        <section class="section" id="advertencias"><h2><span class="n">07</span>Advertencias no bloqueantes</h2>
+          <p>La compilación se completó, aunque se informaron dos excesos del presupuesto CSS de 4,00 kB:</p>
+          <div class="table-scroll"><table><thead><tr><th>Archivo</th><th>Tamaño</th><th>Exceso</th></tr></thead><tbody>
+          <tr><td><span class="code">calendar-page.component.css</span></td><td>5,74 kB</td><td>1,74 kB</td></tr>
+          <tr><td><span class="code">scheduling-page.component.css</span></td><td>5,37 kB</td><td>1,37 kB</td></tr>
+          </tbody></table></div><p>Estas advertencias no impidieron la compilación y no motivaron cambios nuevos durante A12.</p>
+        </section>
+        <section class="section" id="cierre"><h2><span class="n">08</span>Conclusión y decisión de cierre</h2>
+          <div class="closing"><strong>DECISIÓN · Cierre de la implementación frontend</strong><p>Se considera finalizado el plan frontend <strong>A1–A12 de HU-APT-001</strong> y su validación local. El código fusionado en <span class="code">develop</span> superó 169 pruebas, compiló satisfactoriamente y quedó sin cambios pendientes.</p></div>
+          <p><strong>Condición pendiente:</strong> la aceptación funcional completa de HU-APT-001 requiere integrar el directorio IAM autorizado y verificar pacientes, disponibilidad, citas, roles y conflictos con sistemas reales. Por ello, <strong>no se certifica el flujo extremo a extremo</strong>.</p>
+          <p><strong>Próximo paso organizativo:</strong> gestionar las dependencias externas con sus responsables y conservar este informe como evidencia de cierre frontend. Las historias HU-APT-002, HU-APT-003 y HU-APT-004 permanecen separadas.</p>
+          <div class="ref"><strong>Base documental:</strong> salidas CMD de la revisión A12 y código inspeccionado de Scheduling, directorio odontológico, cliente API de citas y búsqueda de pacientes. Este documento es un informe técnico de estado, no un acta de aceptación de integración extremo a extremo.</div>
+        </section>
+      </main>
+    </div>
+    <footer class="footer">HU-APT-001 · Cierre frontend verificado · 9 de octubre de 2026 · code-corhuila/dlc-appointments-portal</footer>
+  </div>
+</body>
+</html>

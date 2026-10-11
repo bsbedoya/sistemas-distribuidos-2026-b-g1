@@ -1,0 +1,1827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_DiLucca" targetNamespace="https://di-lucca.example/bpmn" exporter="Camunda Modeler" exporterVersion="5.51.1">
+  <bpmn:collaboration id="Collaboration_Core" name="Di Lucca - Atención integral del paciente">
+    <bpmn:participant id="Participant_Paciente" name="Paciente" />
+    <bpmn:participant id="Participant_Secretaria" name="Secretaría / Asistencia / Administrador" processRef="Process_Secretaria" />
+    <bpmn:participant id="Participant_Patients" name="Patients | Gestión de pacientes" processRef="Process_Patients" />
+    <bpmn:participant id="Participant_Appointments" name="Appointments | Gestión de citas" processRef="Process_Appointments" />
+    <bpmn:participant id="Participant_Odontologo" name="Odontólogo" processRef="Process_Odontologo" />
+    <bpmn:participant id="Participant_Clinical" name="Clinical | Gestión de la atención clínica" processRef="Process_Clinical" />
+    <bpmn:participant id="Participant_Billing" name="Billing | Facturación y pagos" processRef="Process_Billing" />
+    <bpmn:participant id="Participant_Worker" name="Worker | Envío de correos" processRef="Process_Worker" />
+    <bpmn:messageFlow id="Message_91" name="Solicitud de cita" sourceRef="Participant_Paciente" targetRef="Solicitud" />
+    <bpmn:messageFlow id="Message_92" name="Llamada o aviso externo" sourceRef="Participant_Paciente" targetRef="Llamada" />
+    <bpmn:messageFlow id="Message_93" name="Búsqueda / registro" sourceRef="BuscarPaciente" targetRef="ConsultaPaciente" />
+    <bpmn:messageFlow id="Message_94" name="Paciente disponible" sourceRef="PacienteDisponible" targetRef="ElegirHorario" />
+    <bpmn:messageFlow id="Message_95" name="Agendar cita" sourceRef="SolicitarReserva" targetRef="ReservarInicio" />
+    <bpmn:messageFlow id="Message_96" name="Cancelar por solicitud del paciente" sourceRef="PedirCancelacion" targetRef="CancelarInicio" />
+    <bpmn:messageFlow id="Message_97" name="Reprogramar cita" sourceRef="PedirCambio" targetRef="MoverInicio" />
+    <bpmn:messageFlow id="Message_98" name="Asistencia o inasistencia" sourceRef="ComprobarAsistencia" targetRef="AsistenciaInicio" />
+    <bpmn:messageFlow id="Message_99" name="Finalizar cita" sourceRef="CerrarCita" targetRef="FinalizarInicio" />
+    <bpmn:messageFlow id="Message_100" name="Iniciar atención" sourceRef="CitaAtendida" targetRef="AtencionInicio" />
+    <bpmn:messageFlow id="Message_101" name="Consultar historia" sourceRef="RevisarHistoria" targetRef="HistoriaInicio" />
+    <bpmn:messageFlow id="Message_102" name="Historia clínica" sourceRef="HistoriaEntregada" targetRef="RevisarHistoria" />
+    <bpmn:messageFlow id="Message_104" name="Procedimiento realizado" sourceRef="RealizarProcedimiento" targetRef="RegistroClinico" />
+    <bpmn:messageFlow id="Message_105" name="Cerrar atención" sourceRef="TerminarAtencion" targetRef="CierreClinico" />
+    <bpmn:messageFlow id="Message_106" name="Atención clínica terminada" sourceRef="ClinicaTerminada" targetRef="ListaParaCerrar" />
+    <bpmn:messageFlow id="Message_107" name="Procedimiento completado" sourceRef="ProcedimientoGuardado" targetRef="CargosInicio" />
+    <bpmn:messageFlow id="Message_108" name="Cita finalizada" sourceRef="CitaFinalizada" targetRef="EsperarCierre" />
+    <bpmn:messageFlow id="Message_109" name="Cargos listos para revisión" sourceRef="AvisarCargos" targetRef="CobroListo" />
+    <bpmn:messageFlow id="Message_110" name="Emitir factura" sourceRef="EmitirFactura" targetRef="OrdenFactura" />
+    <bpmn:messageFlow id="Message_111" name="Aplicar pago" sourceRef="IngresoPago" targetRef="PagoInicio" />
+    <bpmn:messageFlow id="Message_112" name="Recordatorio de la cita" sourceRef="SolicitarRecordatorio" targetRef="CorreoInicio" />
+    <bpmn:messageFlow id="Message_113" name="Aviso de cancelación" sourceRef="CorreoCancelacion" targetRef="CorreoInicio" />
+    <bpmn:messageFlow id="Message_114" name="Aviso de reprogramación" sourceRef="CorreoCambio" targetRef="CorreoInicio" />
+    <bpmn:messageFlow id="Message_115" name="Factura y PDF" sourceRef="FacturaEmitida" targetRef="CorreoInicio" />
+    <bpmn:messageFlow id="Message_116" name="Pago y saldo actualizado" sourceRef="AvisarPago" targetRef="CorreoInicio" />
+    <bpmn:messageFlow id="Message_117" name="Correo informativo" sourceRef="EnviarCorreo" targetRef="Participant_Paciente" />
+    <bpmn:messageFlow id="Message_103" name="Diagnóstico y plan" sourceRef="Diagnosticar" targetRef="RegistroClinico" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Secretaria" name="Secretaría / Asistencia / Administrador" isExecutable="false">
+    <bpmn:userTask id="ElegirHorario" name="Seleccionar odontólogo, fecha y hora disponibles">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="SolicitarReserva" name="Solicitar el registro de la cita">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="DiaCita" name="Fecha y hora de la cita">
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="DiaCita_definition" />
+    </bpmn:startEvent>
+    <bpmn:userTask id="ComprobarAsistencia" name="Comprobar la presencia del paciente y registrar asistencia o inasistencia">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+      <bpmn:outgoing>Flow_12</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="ListaParaCerrar" name="Atención clínica terminada">
+      <bpmn:outgoing>Flow_13</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="ListaParaCerrar_definition" />
+    </bpmn:startEvent>
+    <bpmn:userTask id="RevisarSolicitud" name="Identificar la cita y atender la solicitud del paciente">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="CambioCancelacion" name="Cancelación solicitada">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:startEvent id="Llamada" name="Llamada o aviso externo del paciente">
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="Llamada_definition" />
+    </bpmn:startEvent>
+    <bpmn:startEvent id="Solicitud" name="Solicitud de cita recibida">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="Solicitud_definition" />
+    </bpmn:startEvent>
+    <bpmn:userTask id="BuscarPaciente" name="Buscar al paciente o registrar sus datos">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="AsistenciaEnviada" name="Asistencia registrada">
+      <bpmn:incoming>Flow_12</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="SolicitudEnviada" name="Solicitud registrada">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="PagoEnviado" name="Pago registrado">
+      <bpmn:incoming>Flow_18</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="IngresoPago" name="Registrar el valor del pago recibido">
+      <bpmn:incoming>Flow_17</bpmn:incoming>
+      <bpmn:outgoing>Flow_18</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="RecibePago" name="¿Se recibe un pago?">
+      <bpmn:incoming>Flow_16</bpmn:incoming>
+      <bpmn:outgoing>Flow_17</bpmn:outgoing>
+      <bpmn:outgoing>Flow_19</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="PagoPendiente" name="Factura pendiente de pago">
+      <bpmn:incoming>Flow_19</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="EmitirFactura" name="Revisar los cargos y solicitar la factura">
+      <bpmn:incoming>Flow_15</bpmn:incoming>
+      <bpmn:outgoing>Flow_16</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="CobroListo" name="Cargos listos para facturar">
+      <bpmn:outgoing>Flow_15</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="CobroListo_definition" />
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="TipoCambio" name="¿Qué solicita?">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1biswdd</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="PedirCancelacion" name="Registrar la cancelación de la cita en el sistema">
+      <bpmn:incoming>Flow_1biswdd</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="PedirCambio" name="Acordar nuevo horario y registrar la reprogramación">
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="CambioHorario" name="Reprogramación solicitada">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="CerrarCita" name="Revisar y finalizar la cita atendida">
+      <bpmn:incoming>Flow_13</bpmn:incoming>
+      <bpmn:outgoing>Flow_14</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="CierreSolicitado" name="Finalización solicitada">
+      <bpmn:incoming>Flow_14</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="BuscarPaciente" targetRef="ElegirHorario" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="ElegirHorario" targetRef="SolicitarReserva" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="SolicitarReserva" targetRef="SolicitudEnviada" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="DiaCita" targetRef="ComprobarAsistencia" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="ComprobarAsistencia" targetRef="AsistenciaEnviada" />
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="ListaParaCerrar" targetRef="CerrarCita" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Llamada" targetRef="RevisarSolicitud" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="RevisarSolicitud" targetRef="TipoCambio" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="PedirCancelacion" targetRef="CambioCancelacion" />
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="Solicitud" targetRef="BuscarPaciente" />
+    <bpmn:sequenceFlow id="Flow_18" sourceRef="IngresoPago" targetRef="PagoEnviado" />
+    <bpmn:sequenceFlow id="Flow_17" name="Sí" sourceRef="RecibePago" targetRef="IngresoPago" />
+    <bpmn:sequenceFlow id="Flow_16" sourceRef="EmitirFactura" targetRef="RecibePago" />
+    <bpmn:sequenceFlow id="Flow_19" name="No" sourceRef="RecibePago" targetRef="PagoPendiente" />
+    <bpmn:sequenceFlow id="Flow_15" sourceRef="CobroListo" targetRef="EmitirFactura" />
+    <bpmn:sequenceFlow id="Flow_9" name="Reprogramar" sourceRef="TipoCambio" targetRef="PedirCambio" />
+    <bpmn:sequenceFlow id="Flow_1biswdd" name="Cancelar" sourceRef="TipoCambio" targetRef="PedirCancelacion" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="PedirCambio" targetRef="CambioHorario" />
+    <bpmn:sequenceFlow id="Flow_14" sourceRef="CerrarCita" targetRef="CierreSolicitado" />
+  </bpmn:process>
+  <bpmn:process id="Process_Patients" name="Patients | Gestión de pacientes" isExecutable="false">
+    <bpmn:endEvent id="PacienteDisponible" name="Paciente disponible">
+      <bpmn:incoming>Flow_23</bpmn:incoming>
+      <bpmn:incoming>Flow_24</bpmn:incoming>
+      <bpmn:messageEventDefinition id="PacienteDisponible_definition" />
+    </bpmn:endEvent>
+    <bpmn:startEvent id="ConsultaPaciente" name="Solicitud de búsqueda o registro">
+      <bpmn:outgoing>Flow_20</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="ConsultaPaciente_definition" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="IdentificarPaciente" name="Buscar y validar los datos del paciente">
+      <bpmn:incoming>Flow_20</bpmn:incoming>
+      <bpmn:outgoing>Flow_21</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="CrearPaciente" name="Guardar el nuevo paciente">
+      <bpmn:incoming>Flow_22</bpmn:incoming>
+      <bpmn:outgoing>Flow_23</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExistePaciente" name="¿Existe?">
+      <bpmn:incoming>Flow_21</bpmn:incoming>
+      <bpmn:outgoing>Flow_22</bpmn:outgoing>
+      <bpmn:outgoing>Flow_24</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_23" sourceRef="CrearPaciente" targetRef="PacienteDisponible" />
+    <bpmn:sequenceFlow id="Flow_24" name="Sí" sourceRef="ExistePaciente" targetRef="PacienteDisponible" />
+    <bpmn:sequenceFlow id="Flow_20" sourceRef="ConsultaPaciente" targetRef="IdentificarPaciente" />
+    <bpmn:sequenceFlow id="Flow_21" sourceRef="IdentificarPaciente" targetRef="ExistePaciente" />
+    <bpmn:sequenceFlow id="Flow_22" name="No" sourceRef="ExistePaciente" targetRef="CrearPaciente" />
+  </bpmn:process>
+  <bpmn:process id="Process_Appointments" name="Appointments | Gestión de citas" isExecutable="false">
+    <bpmn:serviceTask id="ValidarReserva" name="Validar permisos, paciente, odontólogo y disponibilidad del horario">
+      <bpmn:incoming>Flow_25</bpmn:incoming>
+      <bpmn:outgoing>Flow_26</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="GuardarCita" name="Reservar el horario y guardar la cita sin permitir solapamientos">
+      <bpmn:incoming>Flow_26</bpmn:incoming>
+      <bpmn:outgoing>Flow_27</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ReservaValida" name="¿Reserva realizada?">
+      <bpmn:incoming>Flow_27</bpmn:incoming>
+      <bpmn:outgoing>Flow_28</bpmn:outgoing>
+      <bpmn:outgoing>Flow_32</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:parallelGateway id="ReservaParalela" name="">
+      <bpmn:incoming>Flow_28</bpmn:incoming>
+      <bpmn:outgoing>Flow_29</bpmn:outgoing>
+      <bpmn:outgoing>Flow_30</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="CitaAgendada" name="Cita agendada">
+      <bpmn:incoming>Flow_29</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="ProgramarAviso" name="Programar el recordatorio para 24 horas antes">
+      <bpmn:incoming>Flow_30</bpmn:incoming>
+      <bpmn:outgoing>Flow_31</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="AvisoProgramado" name="Recordatorio programado">
+      <bpmn:incoming>Flow_31</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="RecordatorioVigente" name="¿Sigue vigente?">
+      <bpmn:incoming>Flow_34</bpmn:incoming>
+      <bpmn:outgoing>Flow_35</bpmn:outgoing>
+      <bpmn:outgoing>Flow_37</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="SolicitarRecordatorio" name="Solicitar correo de recordatorio de la cita">
+      <bpmn:incoming>Flow_35</bpmn:incoming>
+      <bpmn:outgoing>Flow_36</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="OmitirAviso" name="Omitir recordatorio anterior">
+      <bpmn:incoming>Flow_37</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="CambioValido" name="¿Cambio realizado?">
+      <bpmn:incoming>Flow_44</bpmn:incoming>
+      <bpmn:outgoing>Flow_45</bpmn:outgoing>
+      <bpmn:outgoing>Flow_50</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="CambioRechazado" name="Informar conflicto; elegir otro horario">
+      <bpmn:incoming>Flow_50</bpmn:incoming>
+      <bpmn:messageEventDefinition id="CambioRechazado_definition" />
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="CorreoCambio" name="Solicitar correo con la nueva fecha y hora">
+      <bpmn:incoming>Flow_48</bpmn:incoming>
+      <bpmn:outgoing>Flow_49</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Asistio" name="¿Asistió?">
+      <bpmn:incoming>Flow_51</bpmn:incoming>
+      <bpmn:outgoing>Flow_52</bpmn:outgoing>
+      <bpmn:outgoing>Flow_54</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="GuardarInasistencia" name="Guardar inasistencia y liberar horario">
+      <bpmn:incoming>Flow_54</bpmn:incoming>
+      <bpmn:outgoing>Flow_55</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="FinalizarInicio" name="Finalización solicitada por secretaría">
+      <bpmn:outgoing>Flow_56</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="FinalizarInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="FinalizarCita" name="Validar atención terminada y guardar finalización de la cita">
+      <bpmn:incoming>Flow_56</bpmn:incoming>
+      <bpmn:outgoing>Flow_57</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="CitaFinalizada" name="Cita finalizada">
+      <bpmn:incoming>Flow_57</bpmn:incoming>
+      <bpmn:messageEventDefinition id="CitaFinalizada_definition" />
+    </bpmn:endEvent>
+    <bpmn:startEvent id="ReservarInicio" name="Solicitud de agendamiento">
+      <bpmn:outgoing>Flow_25</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="ReservarInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:endEvent id="ReservaRechazada" name="Informar conflicto; elegir otro horario">
+      <bpmn:incoming>Flow_32</bpmn:incoming>
+      <bpmn:messageEventDefinition id="ReservaRechazada_definition" />
+    </bpmn:endEvent>
+    <bpmn:startEvent id="CancelarInicio" name="Cancelación registrada por secretaría">
+      <bpmn:outgoing>Flow_1kvaodc</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="CancelarInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="CancelarCita" name="Validar permisos y estado; guardar cancelación, liberar horario y anular recordatorio">
+      <bpmn:incoming>Flow_1kvaodc</bpmn:incoming>
+      <bpmn:outgoing>Flow_39</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:parallelGateway id="CancelacionParalela" name="">
+      <bpmn:incoming>Flow_39</bpmn:incoming>
+      <bpmn:outgoing>Flow_40</bpmn:outgoing>
+      <bpmn:outgoing>Flow_41</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="Cancelada" name="Cita cancelada">
+      <bpmn:incoming>Flow_40</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="CorreoCancelacion" name="Solicitar correo de cancelación">
+      <bpmn:incoming>Flow_41</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mcxwcs</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="CancelacionNotificada" name="Aviso solicitado">
+      <bpmn:incoming>Flow_0mcxwcs</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="CambioNotificado" name="Aviso solicitado">
+      <bpmn:incoming>Flow_49</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="MoverCita" name="Validar y reservar nuevo horario; liberar anterior y guardar reprogramación">
+      <bpmn:incoming>Flow_43</bpmn:incoming>
+      <bpmn:outgoing>Flow_44</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="MoverInicio" name="Reprogramación registrada por secretaría">
+      <bpmn:outgoing>Flow_43</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MoverInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="CambiarRecordatorio" name="Anular recordatorio anterior y programar el nuevo">
+      <bpmn:incoming>Flow_45</bpmn:incoming>
+      <bpmn:outgoing>Flow_46</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:parallelGateway id="CambioParalelo" name="">
+      <bpmn:incoming>Flow_46</bpmn:incoming>
+      <bpmn:outgoing>Flow_47</bpmn:outgoing>
+      <bpmn:outgoing>Flow_48</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="Reprogramada" name="Cita reprogramada">
+      <bpmn:incoming>Flow_47</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="ValidarRecordatorio" name="Verificar que la cita siga vigente y el horario no haya cambiado">
+      <bpmn:incoming>Flow_33</bpmn:incoming>
+      <bpmn:outgoing>Flow_34</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="RecordatorioHora" name="24 horas antes de la cita">
+      <bpmn:outgoing>Flow_33</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="RecordatorioHora_definition" />
+    </bpmn:startEvent>
+    <bpmn:endEvent id="RecordatorioPedido" name="Recordatorio solicitado">
+      <bpmn:incoming>Flow_36</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="CitaAtendida" name="Paciente listo para atención">
+      <bpmn:incoming>Flow_53</bpmn:incoming>
+      <bpmn:messageEventDefinition id="CitaAtendida_definition" />
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="GuardarAsistencia" name="Guardar asistencia y habilitar la atención">
+      <bpmn:incoming>Flow_52</bpmn:incoming>
+      <bpmn:outgoing>Flow_53</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="AsistenciaInicio" name="Registro de asistencia recibido">
+      <bpmn:outgoing>Flow_51</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="AsistenciaInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:endEvent id="SinAtencion" name="Sin atención ni cobro">
+      <bpmn:incoming>Flow_55</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_25" sourceRef="ReservarInicio" targetRef="ValidarReserva" />
+    <bpmn:sequenceFlow id="Flow_26" sourceRef="ValidarReserva" targetRef="GuardarCita" />
+    <bpmn:sequenceFlow id="Flow_27" sourceRef="GuardarCita" targetRef="ReservaValida" />
+    <bpmn:sequenceFlow id="Flow_28" name="Sí" sourceRef="ReservaValida" targetRef="ReservaParalela" />
+    <bpmn:sequenceFlow id="Flow_32" name="No" sourceRef="ReservaValida" targetRef="ReservaRechazada" />
+    <bpmn:sequenceFlow id="Flow_29" sourceRef="ReservaParalela" targetRef="CitaAgendada" />
+    <bpmn:sequenceFlow id="Flow_30" sourceRef="ReservaParalela" targetRef="ProgramarAviso" />
+    <bpmn:sequenceFlow id="Flow_31" sourceRef="ProgramarAviso" targetRef="AvisoProgramado" />
+    <bpmn:sequenceFlow id="Flow_34" sourceRef="ValidarRecordatorio" targetRef="RecordatorioVigente" />
+    <bpmn:sequenceFlow id="Flow_35" name="Sí" sourceRef="RecordatorioVigente" targetRef="SolicitarRecordatorio" />
+    <bpmn:sequenceFlow id="Flow_37" name="No" sourceRef="RecordatorioVigente" targetRef="OmitirAviso" />
+    <bpmn:sequenceFlow id="Flow_36" sourceRef="SolicitarRecordatorio" targetRef="RecordatorioPedido" />
+    <bpmn:sequenceFlow id="Flow_44" sourceRef="MoverCita" targetRef="CambioValido" />
+    <bpmn:sequenceFlow id="Flow_45" name="Sí" sourceRef="CambioValido" targetRef="CambiarRecordatorio" />
+    <bpmn:sequenceFlow id="Flow_50" name="No" sourceRef="CambioValido" targetRef="CambioRechazado" />
+    <bpmn:sequenceFlow id="Flow_48" sourceRef="CambioParalelo" targetRef="CorreoCambio" />
+    <bpmn:sequenceFlow id="Flow_49" sourceRef="CorreoCambio" targetRef="CambioNotificado" />
+    <bpmn:sequenceFlow id="Flow_51" sourceRef="AsistenciaInicio" targetRef="Asistio" />
+    <bpmn:sequenceFlow id="Flow_52" name="Sí" sourceRef="Asistio" targetRef="GuardarAsistencia" />
+    <bpmn:sequenceFlow id="Flow_54" name="No" sourceRef="Asistio" targetRef="GuardarInasistencia" />
+    <bpmn:sequenceFlow id="Flow_55" sourceRef="GuardarInasistencia" targetRef="SinAtencion" />
+    <bpmn:sequenceFlow id="Flow_56" sourceRef="FinalizarInicio" targetRef="FinalizarCita" />
+    <bpmn:sequenceFlow id="Flow_57" sourceRef="FinalizarCita" targetRef="CitaFinalizada" />
+    <bpmn:sequenceFlow id="Flow_1kvaodc" sourceRef="CancelarInicio" targetRef="CancelarCita" />
+    <bpmn:sequenceFlow id="Flow_39" sourceRef="CancelarCita" targetRef="CancelacionParalela" />
+    <bpmn:sequenceFlow id="Flow_40" sourceRef="CancelacionParalela" targetRef="Cancelada" />
+    <bpmn:sequenceFlow id="Flow_41" sourceRef="CancelacionParalela" targetRef="CorreoCancelacion" />
+    <bpmn:sequenceFlow id="Flow_0mcxwcs" sourceRef="CorreoCancelacion" targetRef="CancelacionNotificada" />
+    <bpmn:sequenceFlow id="Flow_43" sourceRef="MoverInicio" targetRef="MoverCita" />
+    <bpmn:sequenceFlow id="Flow_46" sourceRef="CambiarRecordatorio" targetRef="CambioParalelo" />
+    <bpmn:sequenceFlow id="Flow_47" sourceRef="CambioParalelo" targetRef="Reprogramada" />
+    <bpmn:sequenceFlow id="Flow_33" sourceRef="RecordatorioHora" targetRef="ValidarRecordatorio" />
+    <bpmn:sequenceFlow id="Flow_53" sourceRef="GuardarAsistencia" targetRef="CitaAtendida" />
+  </bpmn:process>
+  <bpmn:process id="Process_Odontologo" name="Odontólogo" isExecutable="false">
+    <bpmn:userTask id="RevisarHistoria" name="Consultar historia clínica">
+      <bpmn:incoming>Flow_58</bpmn:incoming>
+      <bpmn:outgoing>Flow_59</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Diagnosticar" name="Registrar diagnóstico y plan de tratamiento">
+      <bpmn:incoming>Flow_59</bpmn:incoming>
+      <bpmn:outgoing>Flow_60</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="RealizarProcedimiento" name="Realizar y registrar procedimiento, materiales y adicionales justificados">
+      <bpmn:incoming>Flow_62</bpmn:incoming>
+      <bpmn:incoming>Flow_60</bpmn:incoming>
+      <bpmn:outgoing>Flow_61</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="MasProcedimientos" name="¿Hay más procedimientos?">
+      <bpmn:incoming>Flow_61</bpmn:incoming>
+      <bpmn:outgoing>Flow_62</bpmn:outgoing>
+      <bpmn:outgoing>Flow_63</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:startEvent id="AtencionInicio" name="Paciente listo para atención">
+      <bpmn:outgoing>Flow_58</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="AtencionInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:userTask id="TerminarAtencion" name="Registrar evolución y terminar la atención clínica">
+      <bpmn:incoming>Flow_63</bpmn:incoming>
+      <bpmn:outgoing>Flow_64</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="AtencionTerminada" name="Atención terminada">
+      <bpmn:incoming>Flow_64</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_58" sourceRef="AtencionInicio" targetRef="RevisarHistoria" />
+    <bpmn:sequenceFlow id="Flow_59" sourceRef="RevisarHistoria" targetRef="Diagnosticar" />
+    <bpmn:sequenceFlow id="Flow_60" sourceRef="Diagnosticar" targetRef="RealizarProcedimiento" />
+    <bpmn:sequenceFlow id="Flow_62" name="Sí" sourceRef="MasProcedimientos" targetRef="RealizarProcedimiento" />
+    <bpmn:sequenceFlow id="Flow_61" sourceRef="RealizarProcedimiento" targetRef="MasProcedimientos" />
+    <bpmn:sequenceFlow id="Flow_63" name="No" sourceRef="MasProcedimientos" targetRef="TerminarAtencion" />
+    <bpmn:sequenceFlow id="Flow_64" sourceRef="TerminarAtencion" targetRef="AtencionTerminada" />
+  </bpmn:process>
+  <bpmn:process id="Process_Clinical" name="Clinical | Gestión de la atención clínica" isExecutable="false">
+    <bpmn:endEvent id="HistoriaEntregada" name="Historia disponible">
+      <bpmn:incoming>Flow_01c2r66</bpmn:incoming>
+      <bpmn:messageEventDefinition id="HistoriaEntregada_definition" />
+    </bpmn:endEvent>
+    <bpmn:startEvent id="RegistroClinico" name="Registro del odontólogo">
+      <bpmn:outgoing>Flow_67</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="RegistroClinico_definition" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="GuardarProcedimiento" name="Validar y guardar diagnóstico, procedimientos, materiales y evolución">
+      <bpmn:incoming>Flow_67</bpmn:incoming>
+      <bpmn:outgoing>Flow_68</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="ProcedimientoGuardado" name="Procedimiento completado">
+      <bpmn:incoming>Flow_68</bpmn:incoming>
+      <bpmn:messageEventDefinition id="ProcedimientoGuardado_definition" />
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="ConsultarHistoria" name="Validar acceso y consultar historia clínica">
+      <bpmn:incoming>Flow_0d4hbhp</bpmn:incoming>
+      <bpmn:outgoing>Flow_01c2r66</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="HistoriaInicio" name="Consulta del odontólogo">
+      <bpmn:outgoing>Flow_0d4hbhp</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="HistoriaInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:startEvent id="CierreClinico" name="Fin de atención registrado">
+      <bpmn:outgoing>Flow_69</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="CierreClinico_definition" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="GuardarCierre" name="Validar procedimientos terminados y guardar cierre clínico">
+      <bpmn:incoming>Flow_69</bpmn:incoming>
+      <bpmn:outgoing>Flow_70</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="ClinicaTerminada" name="Atención clínica terminada">
+      <bpmn:incoming>Flow_70</bpmn:incoming>
+      <bpmn:messageEventDefinition id="ClinicaTerminada_definition" />
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_01c2r66" sourceRef="ConsultarHistoria" targetRef="HistoriaEntregada" />
+    <bpmn:sequenceFlow id="Flow_67" sourceRef="RegistroClinico" targetRef="GuardarProcedimiento" />
+    <bpmn:sequenceFlow id="Flow_68" sourceRef="GuardarProcedimiento" targetRef="ProcedimientoGuardado" />
+    <bpmn:sequenceFlow id="Flow_0d4hbhp" sourceRef="HistoriaInicio" targetRef="ConsultarHistoria" />
+    <bpmn:sequenceFlow id="Flow_69" sourceRef="CierreClinico" targetRef="GuardarCierre" />
+    <bpmn:sequenceFlow id="Flow_70" sourceRef="GuardarCierre" targetRef="ClinicaTerminada" />
+  </bpmn:process>
+  <bpmn:process id="Process_Billing" name="Billing | Facturación y pagos" isExecutable="false">
+    <bpmn:startEvent id="CargosInicio" name="Procedimiento completado">
+      <bpmn:outgoing>Flow_71</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="CargosInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="PrepararCargos" name="Resolver precios y reunir cargos sin duplicados">
+      <bpmn:incoming>Flow_71</bpmn:incoming>
+      <bpmn:outgoing>Flow_72</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="ResolverPrecio" name="Solicitar al odontólogo o administrador los precios manuales justificados cuando falten">
+      <bpmn:incoming>Flow_72</bpmn:incoming>
+      <bpmn:outgoing>Flow_73</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:intermediateCatchEvent id="EsperarCierre" name="Cita finalizada">
+      <bpmn:incoming>Flow_73</bpmn:incoming>
+      <bpmn:outgoing>Flow_74</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="EsperarCierre_definition" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:serviceTask id="CargosValidos" name="Comprobar cargos completos y precios resueltos">
+      <bpmn:incoming>Flow_74</bpmn:incoming>
+      <bpmn:outgoing>Flow_75</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:intermediateThrowEvent id="AvisarCargos" name="Cargos listos">
+      <bpmn:incoming>Flow_75</bpmn:incoming>
+      <bpmn:outgoing>Flow_76</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="AvisarCargos_definition" />
+    </bpmn:intermediateThrowEvent>
+    <bpmn:intermediateCatchEvent id="OrdenFactura" name="Emisión solicitada por secretaría">
+      <bpmn:incoming>Flow_76</bpmn:incoming>
+      <bpmn:outgoing>Flow_77</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="OrdenFactura_definition" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:startEvent id="PagoInicio" name="Pago registrado por secretaría">
+      <bpmn:outgoing>Flow_79</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="PagoInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="ValidarPago" name="Validar valor positivo que no supere el saldo">
+      <bpmn:incoming>Flow_79</bpmn:incoming>
+      <bpmn:outgoing>Flow_80</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="GuardarPago" name="Guardar pago sin duplicados y actualizar saldo">
+      <bpmn:incoming>Flow_80</bpmn:incoming>
+      <bpmn:outgoing>Flow_81</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:intermediateThrowEvent id="AvisarPago" name="Pago aplicado">
+      <bpmn:incoming>Flow_81</bpmn:incoming>
+      <bpmn:outgoing>Flow_82</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="AvisarPago_definition" />
+    </bpmn:intermediateThrowEvent>
+    <bpmn:exclusiveGateway id="SaldoCero" name="¿Saldo en cero?">
+      <bpmn:incoming>Flow_82</bpmn:incoming>
+      <bpmn:outgoing>Flow_83</bpmn:outgoing>
+      <bpmn:outgoing>Flow_84</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Abonada" name="Abono registrado; saldo pendiente">
+      <bpmn:incoming>Flow_84</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="GuardarFactura" name="Guardar factura y generar PDF">
+      <bpmn:incoming>Flow_77</bpmn:incoming>
+      <bpmn:outgoing>Flow_78</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="FacturaEmitida" name="Factura emitida">
+      <bpmn:incoming>Flow_78</bpmn:incoming>
+      <bpmn:messageEventDefinition id="FacturaEmitida_definition" />
+    </bpmn:endEvent>
+    <bpmn:endEvent id="Pagada" name="Factura pagada">
+      <bpmn:incoming>Flow_83</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_71" sourceRef="CargosInicio" targetRef="PrepararCargos" />
+    <bpmn:sequenceFlow id="Flow_72" sourceRef="PrepararCargos" targetRef="ResolverPrecio" />
+    <bpmn:sequenceFlow id="Flow_73" sourceRef="ResolverPrecio" targetRef="EsperarCierre" />
+    <bpmn:sequenceFlow id="Flow_74" sourceRef="EsperarCierre" targetRef="CargosValidos" />
+    <bpmn:sequenceFlow id="Flow_75" sourceRef="CargosValidos" targetRef="AvisarCargos" />
+    <bpmn:sequenceFlow id="Flow_76" sourceRef="AvisarCargos" targetRef="OrdenFactura" />
+    <bpmn:sequenceFlow id="Flow_77" sourceRef="OrdenFactura" targetRef="GuardarFactura" />
+    <bpmn:sequenceFlow id="Flow_79" sourceRef="PagoInicio" targetRef="ValidarPago" />
+    <bpmn:sequenceFlow id="Flow_80" sourceRef="ValidarPago" targetRef="GuardarPago" />
+    <bpmn:sequenceFlow id="Flow_81" sourceRef="GuardarPago" targetRef="AvisarPago" />
+    <bpmn:sequenceFlow id="Flow_82" sourceRef="AvisarPago" targetRef="SaldoCero" />
+    <bpmn:sequenceFlow id="Flow_83" name="Sí" sourceRef="SaldoCero" targetRef="Pagada" />
+    <bpmn:sequenceFlow id="Flow_84" name="No" sourceRef="SaldoCero" targetRef="Abonada" />
+    <bpmn:sequenceFlow id="Flow_78" sourceRef="GuardarFactura" targetRef="FacturaEmitida" />
+  </bpmn:process>
+  <bpmn:process id="Process_Worker" name="Worker | Envío de correos" isExecutable="false">
+    <bpmn:endEvent id="CorreoFin" name="Envío finalizado">
+      <bpmn:incoming>Flow_88</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="CorreoFallo" name="Envío fallido">
+      <bpmn:incoming>Flow_90</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:startEvent id="CorreoInicio" name="Solicitud de correo recibida">
+      <bpmn:outgoing>Flow_85</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="CorreoInicio_definition" />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="EnviarCorreo" name="Enviar recordatorio o aviso; adjuntar PDF cuando corresponda; máximo 3 intentos">
+      <bpmn:incoming>Flow_85</bpmn:incoming>
+      <bpmn:outgoing>Flow_86</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="CorreoEntregado" name="¿Se entregó?">
+      <bpmn:incoming>Flow_86</bpmn:incoming>
+      <bpmn:outgoing>Flow_87</bpmn:outgoing>
+      <bpmn:outgoing>Flow_89</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="GuardarFallo" name="Registrar fallo de entrega">
+      <bpmn:incoming>Flow_89</bpmn:incoming>
+      <bpmn:outgoing>Flow_90</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="GuardarEntrega" name="Registrar entrega exitosa">
+      <bpmn:incoming>Flow_87</bpmn:incoming>
+      <bpmn:outgoing>Flow_88</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_88" sourceRef="GuardarEntrega" targetRef="CorreoFin" />
+    <bpmn:sequenceFlow id="Flow_90" sourceRef="GuardarFallo" targetRef="CorreoFallo" />
+    <bpmn:sequenceFlow id="Flow_85" sourceRef="CorreoInicio" targetRef="EnviarCorreo" />
+    <bpmn:sequenceFlow id="Flow_86" sourceRef="EnviarCorreo" targetRef="CorreoEntregado" />
+    <bpmn:sequenceFlow id="Flow_87" name="Sí" sourceRef="CorreoEntregado" targetRef="GuardarEntrega" />
+    <bpmn:sequenceFlow id="Flow_89" name="No: intentos agotados" sourceRef="CorreoEntregado" targetRef="GuardarFallo" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Core">
+    <bpmndi:BPMNPlane id="Plane_Core" bpmnElement="Collaboration_Core">
+      <bpmndi:BPMNShape id="Shape_Paciente" bpmnElement="Participant_Paciente" isHorizontal="true">
+        <dc:Bounds x="310" y="80" width="2600" height="85" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Participant_Secretaria" bpmnElement="Participant_Secretaria" isHorizontal="true">
+        <dc:Bounds x="310" y="300" width="2600" height="810" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ElegirHorario" bpmnElement="ElegirHorario">
+        <dc:Bounds x="750" y="370" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SolicitarReserva" bpmnElement="SolicitarReserva">
+        <dc:Bounds x="1035" y="370" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DiaCita" bpmnElement="DiaCita">
+        <dc:Bounds x="1460" y="395" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1432" y="439" width="112" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ComprobarAsistencia" bpmnElement="ComprobarAsistencia">
+        <dc:Bounds x="1560" y="370" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ListaParaCerrar" bpmnElement="ListaParaCerrar">
+        <dc:Bounds x="1460" y="620" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1449" y="664" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RevisarSolicitud" bpmnElement="RevisarSolicitud">
+        <dc:Bounds x="497" y="705" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CambioCancelacion" bpmnElement="CambioCancelacion">
+        <dc:Bounds x="1252" y="662" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1225" y="706" width="110" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Llamada" bpmnElement="Llamada">
+        <dc:Bounds x="412" y="610" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="430" y="656" width="120" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Solicitud" bpmnElement="Solicitud">
+        <dc:Bounds x="362" y="395" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="331" y="439" width="119" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_BuscarPaciente" bpmnElement="BuscarPaciente">
+        <dc:Bounds x="477" y="363" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AsistenciaEnviada" bpmnElement="AsistenciaEnviada">
+        <dc:Bounds x="1892" y="397" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1869" y="441" width="103" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SolicitudEnviada" bpmnElement="SolicitudEnviada">
+        <dc:Bounds x="1332" y="397" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1313" y="441" width="94" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_PagoEnviado" bpmnElement="PagoEnviado">
+        <dc:Bounds x="2732" y="892" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2721" y="936" width="78" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_IngresoPago" bpmnElement="IngresoPago">
+        <dc:Bounds x="2237" y="865" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RecibePago" bpmnElement="RecibePago" isMarkerVisible="true">
+        <dc:Bounds x="2039" y="885" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2013" y="863" width="103" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_PagoPendiente" bpmnElement="PagoPendiente">
+        <dc:Bounds x="2192" y="1002" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2168" y="1046" width="104" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EmitirFactura" bpmnElement="EmitirFactura">
+        <dc:Bounds x="1537" y="865" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CobroListo" bpmnElement="CobroListo">
+        <dc:Bounds x="1432" y="896" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1416" y="940" width="89" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_TipoCambio" bpmnElement="TipoCambio" isMarkerVisible="true">
+        <dc:Bounds x="750" y="547" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="750" y="605" width="71" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_PedirCancelacion" bpmnElement="PedirCancelacion">
+        <dc:Bounds x="977" y="527" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_PedirCambio" bpmnElement="PedirCambio">
+        <dc:Bounds x="880" y="775" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CambioHorario" bpmnElement="CambioHorario">
+        <dc:Bounds x="1202" y="882" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1189" y="926" width="82" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CerrarCita" bpmnElement="CerrarCita">
+        <dc:Bounds x="1560" y="675" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CierreSolicitado" bpmnElement="CierreSolicitado">
+        <dc:Bounds x="1982" y="702" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1957" y="746" width="107" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_2" bpmnElement="Flow_2">
+        <di:waypoint x="682" y="408" />
+        <di:waypoint x="716" y="408" />
+        <di:waypoint x="716" y="415" />
+        <di:waypoint x="750" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_3" bpmnElement="Flow_3">
+        <di:waypoint x="955" y="415" />
+        <di:waypoint x="1035" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_4" bpmnElement="Flow_4">
+        <di:waypoint x="1240" y="415" />
+        <di:waypoint x="1332" y="414" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_11" bpmnElement="Flow_11">
+        <di:waypoint x="1496" y="413" />
+        <di:waypoint x="1560" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_12" bpmnElement="Flow_12">
+        <di:waypoint x="1765" y="416" />
+        <di:waypoint x="1892" y="415" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_13" bpmnElement="Flow_13">
+        <di:waypoint x="1496" y="637" />
+        <di:waypoint x="1528" y="637" />
+        <di:waypoint x="1528" y="723" />
+        <di:waypoint x="1560" y="723" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_5" bpmnElement="Flow_5">
+        <di:waypoint x="430" y="646" />
+        <di:waypoint x="430" y="754" />
+        <di:waypoint x="497" y="754" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_6" bpmnElement="Flow_6">
+        <di:waypoint x="702" y="750" />
+        <di:waypoint x="775" y="750" />
+        <di:waypoint x="775" y="597" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_8" bpmnElement="Flow_8">
+        <di:waypoint x="1080" y="617" />
+        <di:waypoint x="1080" y="679" />
+        <di:waypoint x="1252" y="679" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_1" bpmnElement="Flow_1">
+        <di:waypoint x="398" y="412" />
+        <di:waypoint x="477" y="412" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_18" bpmnElement="Flow_18">
+        <di:waypoint x="2442" y="912" />
+        <di:waypoint x="2732" y="910" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_17" bpmnElement="Flow_17">
+        <di:waypoint x="2089" y="910" />
+        <di:waypoint x="2237" y="910" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2094" y="883" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_16" bpmnElement="Flow_16">
+        <di:waypoint x="1742" y="910" />
+        <di:waypoint x="2039" y="910" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_19" bpmnElement="Flow_19">
+        <di:waypoint x="2064" y="935" />
+        <di:waypoint x="2064" y="1020" />
+        <di:waypoint x="2192" y="1020" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2072" y="926" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_15" bpmnElement="Flow_15">
+        <di:waypoint x="1468" y="913" />
+        <di:waypoint x="1537" y="913" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_9" bpmnElement="Flow_9">
+        <di:waypoint x="775" y="597" />
+        <di:waypoint x="775" y="820" />
+        <di:waypoint x="880" y="820" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="777" y="708" width="65" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1biswdd_di" bpmnElement="Flow_1biswdd">
+        <di:waypoint x="800" y="572" />
+        <di:waypoint x="977" y="572" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="866" y="554" width="45" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_10" bpmnElement="Flow_10">
+        <di:waypoint x="1085" y="823" />
+        <di:waypoint x="1120" y="823" />
+        <di:waypoint x="1120" y="899" />
+        <di:waypoint x="1202" y="899" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_14" bpmnElement="Flow_14">
+        <di:waypoint x="1765" y="719" />
+        <di:waypoint x="1982" y="720" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_Participant_Patients" bpmnElement="Participant_Patients" isHorizontal="true">
+        <dc:Bounds x="310" y="1160" width="2600" height="490" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_PacienteDisponible" bpmnElement="PacienteDisponible">
+        <dc:Bounds x="1450" y="1405" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1482" y="1393" width="96" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ConsultaPaciente" bpmnElement="ConsultaPaciente">
+        <dc:Bounds x="362" y="1312" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="331" y="1356" width="118" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_IdentificarPaciente" bpmnElement="IdentificarPaciente">
+        <dc:Bounds x="547" y="1285" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CrearPaciente" bpmnElement="CrearPaciente">
+        <dc:Bounds x="997" y="1445" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ExistePaciente" bpmnElement="ExistePaciente" isMarkerVisible="true">
+        <dc:Bounds x="885" y="1305" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="899" y="1363" width="43" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_23" bpmnElement="Flow_23">
+        <di:waypoint x="1202" y="1489" />
+        <di:waypoint x="1468" y="1489" />
+        <di:waypoint x="1468" y="1441" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_24" bpmnElement="Flow_24">
+        <di:waypoint x="935" y="1330" />
+        <di:waypoint x="1468" y="1330" />
+        <di:waypoint x="1468" y="1405" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1196" y="1295" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_20" bpmnElement="Flow_20">
+        <di:waypoint x="398" y="1329" />
+        <di:waypoint x="547" y="1330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_21" bpmnElement="Flow_21">
+        <di:waypoint x="752" y="1330" />
+        <di:waypoint x="885" y="1330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_22" bpmnElement="Flow_22">
+        <di:waypoint x="910" y="1355" />
+        <di:waypoint x="910" y="1485" />
+        <di:waypoint x="997" y="1485" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="947" y="1451" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_Participant_Appointments" bpmnElement="Participant_Appointments" isHorizontal="true">
+        <dc:Bounds x="310" y="1710" width="2600" height="910" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ValidarReserva" bpmnElement="ValidarReserva">
+        <dc:Bounds x="475" y="1770" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GuardarCita" bpmnElement="GuardarCita">
+        <dc:Bounds x="750" y="1770" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ReservaValida" bpmnElement="ReservaValida" isMarkerVisible="true">
+        <dc:Bounds x="1030" y="1790" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1059" y="1839" width="102" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ReservaParalela" bpmnElement="ReservaParalela">
+        <dc:Bounds x="1160" y="1790" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="895" y="1598" width="140" height="45" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CitaAgendada" bpmnElement="CitaAgendada">
+        <dc:Bounds x="1450" y="1795" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1442" y="1839" width="72" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ProgramarAviso" bpmnElement="ProgramarAviso">
+        <dc:Bounds x="1300" y="1905" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AvisoProgramado" bpmnElement="AvisoProgramado">
+        <dc:Bounds x="1570" y="1930" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1535" y="1974" width="126" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RecordatorioVigente" bpmnElement="RecordatorioVigente" isMarkerVisible="true">
+        <dc:Bounds x="2090" y="1790" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2073" y="1773" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SolicitarRecordatorio" bpmnElement="SolicitarRecordatorio">
+        <dc:Bounds x="2220" y="1770" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_OmitirAviso" bpmnElement="OmitirAviso">
+        <dc:Bounds x="2240" y="1960" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2222" y="2004" width="92" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CambioValido" bpmnElement="CambioValido" isMarkerVisible="true">
+        <dc:Bounds x="1780" y="2150" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1756" y="2133" width="99" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CambioRechazado" bpmnElement="CambioRechazado">
+        <dc:Bounds x="1930" y="2320" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1899" y="2364" width="118" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CorreoCambio" bpmnElement="CorreoCambio">
+        <dc:Bounds x="2320" y="2260" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Asistio" bpmnElement="Asistio" isMarkerVisible="true">
+        <dc:Bounds x="485" y="2470" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="537" y="2513" width="46" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GuardarInasistencia" bpmnElement="GuardarInasistencia">
+        <dc:Bounds x="1110" y="2450" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_FinalizarInicio" bpmnElement="FinalizarInicio">
+        <dc:Bounds x="1690" y="2480" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1665" y="2524" width="107" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_FinalizarCita" bpmnElement="FinalizarCita">
+        <dc:Bounds x="1790" y="2455" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CitaFinalizada" bpmnElement="CitaFinalizada">
+        <dc:Bounds x="2070" y="2480" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2078" y="2531" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ReservarInicio" bpmnElement="ReservarInicio">
+        <dc:Bounds x="385" y="1797" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="378" y="1841" width="70" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ReservaRechazada" bpmnElement="ReservaRechazada">
+        <dc:Bounds x="1182" y="2002" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1151" y="2046" width="118" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CancelarInicio" bpmnElement="CancelarInicio">
+        <dc:Bounds x="352" y="2142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="357" y="2186" width="113" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CancelarCita" bpmnElement="CancelarCita">
+        <dc:Bounds x="527" y="2115" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CancelacionParalela" bpmnElement="CancelacionParalela">
+        <dc:Bounds x="845" y="2135" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="485" y="1958" width="140" height="45" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Cancelada" bpmnElement="Cancelada">
+        <dc:Bounds x="1052" y="2142" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1044" y="2186" width="73" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CorreoCancelacion" bpmnElement="CorreoCancelacion">
+        <dc:Bounds x="767" y="2258" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CancelacionNotificada" bpmnElement="CancelacionNotificada">
+        <dc:Bounds x="1102" y="2287" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1092" y="2331" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CambioNotificado" bpmnElement="CambioNotificado">
+        <dc:Bounds x="2652" y="2302" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2642" y="2346" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_MoverCita" bpmnElement="MoverCita">
+        <dc:Bounds x="1467" y="2130" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_MoverInicio" bpmnElement="MoverInicio">
+        <dc:Bounds x="1322" y="2160" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1290" y="2204" width="120" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CambiarRecordatorio" bpmnElement="CambiarRecordatorio">
+        <dc:Bounds x="1920" y="2151" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CambioParalelo" bpmnElement="CambioParalelo">
+        <dc:Bounds x="2215" y="2171" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1925" y="1943" width="140" height="45" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Reprogramada" bpmnElement="Reprogramada">
+        <dc:Bounds x="2462" y="2122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2444" y="2166" width="92" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ValidarRecordatorio" bpmnElement="ValidarRecordatorio">
+        <dc:Bounds x="1845" y="1770" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RecordatorioHora" bpmnElement="RecordatorioHora">
+        <dc:Bounds x="1732" y="1800" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1732" y="1866" width="120" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RecordatorioPedido" bpmnElement="RecordatorioPedido">
+        <dc:Bounds x="2542" y="1832" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2514" y="1876" width="112" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CitaAtendida" bpmnElement="CitaAtendida">
+        <dc:Bounds x="912" y="2480" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="895" y="2524" width="91" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GuardarAsistencia" bpmnElement="GuardarAsistencia">
+        <dc:Bounds x="637" y="2450" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AsistenciaInicio" bpmnElement="AsistenciaInicio">
+        <dc:Bounds x="362" y="2477" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="348" y="2521" width="109" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SinAtencion" bpmnElement="SinAtencion">
+        <dc:Bounds x="1395" y="2477" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1372" y="2521" width="103" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_25" bpmnElement="Flow_25">
+        <di:waypoint x="421" y="1815" />
+        <di:waypoint x="475" y="1816" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_26" bpmnElement="Flow_26">
+        <di:waypoint x="680" y="1815" />
+        <di:waypoint x="750" y="1815" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_27" bpmnElement="Flow_27">
+        <di:waypoint x="955" y="1815" />
+        <di:waypoint x="1030" y="1815" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_28" bpmnElement="Flow_28">
+        <di:waypoint x="1080" y="1815" />
+        <di:waypoint x="1160" y="1815" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1115" y="1780" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_32" bpmnElement="Flow_32">
+        <di:waypoint x="1055" y="1840" />
+        <di:waypoint x="1055" y="2020" />
+        <di:waypoint x="1182" y="2020" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1062" y="1886" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_29" bpmnElement="Flow_29">
+        <di:waypoint x="1209" y="1816" />
+        <di:waypoint x="1450" y="1814" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_30" bpmnElement="Flow_30">
+        <di:waypoint x="1185" y="1840" />
+        <di:waypoint x="1185" y="1950" />
+        <di:waypoint x="1300" y="1950" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_31" bpmnElement="Flow_31">
+        <di:waypoint x="1505" y="1950" />
+        <di:waypoint x="1570" y="1948" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_33" bpmnElement="Flow_33">
+        <di:waypoint x="1768" y="1817" />
+        <di:waypoint x="1807" y="1817" />
+        <di:waypoint x="1807" y="1818" />
+        <di:waypoint x="1845" y="1818" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_34" bpmnElement="Flow_34">
+        <di:waypoint x="2050" y="1815" />
+        <di:waypoint x="2090" y="1815" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_35" bpmnElement="Flow_35">
+        <di:waypoint x="2140" y="1815" />
+        <di:waypoint x="2220" y="1815" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2175" y="1780" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_37" bpmnElement="Flow_37">
+        <di:waypoint x="2115" y="1840" />
+        <di:waypoint x="2115" y="1978" />
+        <di:waypoint x="2240" y="1978" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2132" y="1848" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_36" bpmnElement="Flow_36">
+        <di:waypoint x="2425" y="1850" />
+        <di:waypoint x="2542" y="1850" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_39" bpmnElement="Flow_39">
+        <di:waypoint x="732" y="2160" />
+        <di:waypoint x="845" y="2160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_40" bpmnElement="Flow_40">
+        <di:waypoint x="895" y="2160" />
+        <di:waypoint x="1052" y="2160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_41" bpmnElement="Flow_41">
+        <di:waypoint x="870" y="2185" />
+        <di:waypoint x="870" y="2258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_43" bpmnElement="Flow_43">
+        <di:waypoint x="1358" y="2177" />
+        <di:waypoint x="1413" y="2177" />
+        <di:waypoint x="1413" y="2178" />
+        <di:waypoint x="1467" y="2178" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_44" bpmnElement="Flow_44">
+        <di:waypoint x="1672" y="2175" />
+        <di:waypoint x="1780" y="2175" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_45" bpmnElement="Flow_45">
+        <di:waypoint x="1826" y="2179" />
+        <di:waypoint x="1920" y="2179" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1872" y="2145" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_50" bpmnElement="Flow_50">
+        <di:waypoint x="1805" y="2200" />
+        <di:waypoint x="1805" y="2338" />
+        <di:waypoint x="1930" y="2338" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1812" y="2211" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_46" bpmnElement="Flow_46">
+        <di:waypoint x="2125" y="2196" />
+        <di:waypoint x="2215" y="2196" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_47" bpmnElement="Flow_47">
+        <di:waypoint x="2240" y="2171" />
+        <di:waypoint x="2240" y="2140" />
+        <di:waypoint x="2462" y="2140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_48" bpmnElement="Flow_48">
+        <di:waypoint x="2240" y="2221" />
+        <di:waypoint x="2240" y="2305" />
+        <di:waypoint x="2320" y="2305" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_49" bpmnElement="Flow_49">
+        <di:waypoint x="2525" y="2320" />
+        <di:waypoint x="2652" y="2320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_51" bpmnElement="Flow_51">
+        <di:waypoint x="398" y="2495" />
+        <di:waypoint x="486" y="2494" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_52" bpmnElement="Flow_52">
+        <di:waypoint x="535" y="2495" />
+        <di:waypoint x="637" y="2495" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="606" y="2461" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_54" bpmnElement="Flow_54">
+        <di:waypoint x="510" y="2520" />
+        <di:waypoint x="510" y="2570" />
+        <di:waypoint x="1210" y="2570" />
+        <di:waypoint x="1210" y="2540" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="853" y="2535" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_53" bpmnElement="Flow_53">
+        <di:waypoint x="842" y="2498" />
+        <di:waypoint x="912" y="2498" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_55" bpmnElement="Flow_55">
+        <di:waypoint x="1315" y="2496" />
+        <di:waypoint x="1395" y="2495" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_56" bpmnElement="Flow_56">
+        <di:waypoint x="1726" y="2498" />
+        <di:waypoint x="1790" y="2500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_57" bpmnElement="Flow_57">
+        <di:waypoint x="1995" y="2500" />
+        <di:waypoint x="2070" y="2498" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kvaodc_di" bpmnElement="Flow_1kvaodc">
+        <di:waypoint x="388" y="2160" />
+        <di:waypoint x="527" y="2160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mcxwcs_di" bpmnElement="Flow_0mcxwcs">
+        <di:waypoint x="972" y="2304" />
+        <di:waypoint x="1102" y="2305" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_Participant_Odontologo" bpmnElement="Participant_Odontologo" isHorizontal="true">
+        <dc:Bounds x="310" y="2640" width="2600" height="470" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RevisarHistoria" bpmnElement="RevisarHistoria">
+        <dc:Bounds x="475" y="2720" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Diagnosticar" bpmnElement="Diagnosticar">
+        <dc:Bounds x="750" y="2720" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RealizarProcedimiento" bpmnElement="RealizarProcedimiento">
+        <dc:Bounds x="1025" y="2720" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_MasProcedimientos" bpmnElement="MasProcedimientos" isMarkerVisible="true">
+        <dc:Bounds x="1300" y="2740" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1253" y="2723" width="134" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AtencionInicio" bpmnElement="AtencionInicio">
+        <dc:Bounds x="362" y="2747" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="345" y="2791" width="91" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_TerminarAtencion" bpmnElement="TerminarAtencion">
+        <dc:Bounds x="1457" y="2720" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AtencionTerminada" bpmnElement="AtencionTerminada">
+        <dc:Bounds x="1832" y="2750" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1813" y="2794" width="95" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_58" bpmnElement="Flow_58">
+        <di:waypoint x="398" y="2764" />
+        <di:waypoint x="475" y="2765" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_59" bpmnElement="Flow_59">
+        <di:waypoint x="680" y="2765" />
+        <di:waypoint x="750" y="2765" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_60" bpmnElement="Flow_60">
+        <di:waypoint x="955" y="2765" />
+        <di:waypoint x="1025" y="2765" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_62" bpmnElement="Flow_62">
+        <di:waypoint x="1325" y="2790" />
+        <di:waypoint x="1325" y="2875" />
+        <di:waypoint x="1125" y="2875" />
+        <di:waypoint x="1125" y="2810" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1220" y="2840" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_61" bpmnElement="Flow_61">
+        <di:waypoint x="1230" y="2765" />
+        <di:waypoint x="1300" y="2765" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_63" bpmnElement="Flow_63">
+        <di:waypoint x="1350" y="2765" />
+        <di:waypoint x="1457" y="2765" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1396" y="2730" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_64" bpmnElement="Flow_64">
+        <di:waypoint x="1662" y="2768" />
+        <di:waypoint x="1832" y="2768" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_Participant_Clinical" bpmnElement="Participant_Clinical" isHorizontal="true">
+        <dc:Bounds x="310" y="3160" width="2600" height="400" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_HistoriaEntregada" bpmnElement="HistoriaEntregada">
+        <dc:Bounds x="760" y="3250" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="743" y="3294" width="90" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_RegistroClinico" bpmnElement="RegistroClinico">
+        <dc:Bounds x="990" y="3250" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="881" y="3283" width="117" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GuardarProcedimiento" bpmnElement="GuardarProcedimiento">
+        <dc:Bounds x="1090" y="3225" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ProcedimientoGuardado" bpmnElement="ProcedimientoGuardado">
+        <dc:Bounds x="1380" y="3250" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1324" y="3306" width="71" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ConsultarHistoria" bpmnElement="ConsultarHistoria">
+        <dc:Bounds x="487" y="3223" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_HistoriaInicio" bpmnElement="HistoriaInicio">
+        <dc:Bounds x="385" y="3252" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="354" y="3296" width="119" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CierreClinico" bpmnElement="CierreClinico">
+        <dc:Bounds x="1620" y="3252" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1582" y="3287" width="76" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GuardarCierre" bpmnElement="GuardarCierre">
+        <dc:Bounds x="1737" y="3223" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ClinicaTerminada" bpmnElement="ClinicaTerminada">
+        <dc:Bounds x="2032" y="3250" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2021" y="3294" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_67" bpmnElement="Flow_67">
+        <di:waypoint x="1026" y="3268" />
+        <di:waypoint x="1090" y="3270" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_68" bpmnElement="Flow_68">
+        <di:waypoint x="1170" y="3225" />
+        <di:waypoint x="1170" y="3179" />
+        <di:waypoint x="1398" y="3179" />
+        <di:waypoint x="1398" y="3250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_69" bpmnElement="Flow_69">
+        <di:waypoint x="1656" y="3270" />
+        <di:waypoint x="1737" y="3271" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_70" bpmnElement="Flow_70">
+        <di:waypoint x="1942" y="3269" />
+        <di:waypoint x="2032" y="3268" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0d4hbhp_di" bpmnElement="Flow_0d4hbhp">
+        <di:waypoint x="421" y="3269" />
+        <di:waypoint x="487" y="3268" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01c2r66_di" bpmnElement="Flow_01c2r66">
+        <di:waypoint x="692" y="3268" />
+        <di:waypoint x="760" y="3268" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_Participant_Billing" bpmnElement="Participant_Billing" isHorizontal="true">
+        <dc:Bounds x="310" y="3600" width="2600" height="620" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CargosInicio" bpmnElement="CargosInicio">
+        <dc:Bounds x="385" y="3690" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="378" y="3734" width="71" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_PrepararCargos" bpmnElement="PrepararCargos">
+        <dc:Bounds x="475" y="3665" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ResolverPrecio" bpmnElement="ResolverPrecio">
+        <dc:Bounds x="750" y="3665" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EsperarCierre" bpmnElement="EsperarCierre">
+        <dc:Bounds x="1030" y="3690" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1023" y="3734" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CargosValidos" bpmnElement="CargosValidos">
+        <dc:Bounds x="1150" y="3665" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AvisarCargos" bpmnElement="AvisarCargos">
+        <dc:Bounds x="1430" y="3690" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1426" y="3734" width="64" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_OrdenFactura" bpmnElement="OrdenFactura">
+        <dc:Bounds x="1660" y="3690" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1635" y="3734" width="107" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_PagoInicio" bpmnElement="PagoInicio">
+        <dc:Bounds x="385" y="3970" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="365" y="4014" width="97" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_ValidarPago" bpmnElement="ValidarPago">
+        <dc:Bounds x="475" y="3945" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GuardarPago" bpmnElement="GuardarPago">
+        <dc:Bounds x="750" y="3945" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_AvisarPago" bpmnElement="AvisarPago">
+        <dc:Bounds x="1030" y="3970" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1023" y="4014" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_SaldoCero" bpmnElement="SaldoCero" isMarkerVisible="true">
+        <dc:Bounds x="1190" y="3960" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1229" y="4003" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Abonada" bpmnElement="Abonada">
+        <dc:Bounds x="1650" y="4110" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1620" y="4154" width="117" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GuardarFactura" bpmnElement="GuardarFactura">
+        <dc:Bounds x="1787" y="3663" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_FacturaEmitida" bpmnElement="FacturaEmitida">
+        <dc:Bounds x="2092" y="3690" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2082" y="3734" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Pagada" bpmnElement="Pagada">
+        <dc:Bounds x="1472" y="3967" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1461" y="4011" width="78" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_71" bpmnElement="Flow_71">
+        <di:waypoint x="421" y="3708" />
+        <di:waypoint x="475" y="3710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_72" bpmnElement="Flow_72">
+        <di:waypoint x="680" y="3710" />
+        <di:waypoint x="750" y="3710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_73" bpmnElement="Flow_73">
+        <di:waypoint x="955" y="3710" />
+        <di:waypoint x="1030" y="3708" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_74" bpmnElement="Flow_74">
+        <di:waypoint x="1066" y="3708" />
+        <di:waypoint x="1150" y="3710" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_75" bpmnElement="Flow_75">
+        <di:waypoint x="1355" y="3710" />
+        <di:waypoint x="1430" y="3708" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_76" bpmnElement="Flow_76">
+        <di:waypoint x="1466" y="3708" />
+        <di:waypoint x="1660" y="3708" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_77" bpmnElement="Flow_77">
+        <di:waypoint x="1696" y="3709" />
+        <di:waypoint x="1787" y="3711" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_78" bpmnElement="Flow_78">
+        <di:waypoint x="1992" y="3708" />
+        <di:waypoint x="2092" y="3708" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_79" bpmnElement="Flow_79">
+        <di:waypoint x="421" y="3988" />
+        <di:waypoint x="475" y="3990" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_80" bpmnElement="Flow_80">
+        <di:waypoint x="680" y="3990" />
+        <di:waypoint x="750" y="3990" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_81" bpmnElement="Flow_81">
+        <di:waypoint x="955" y="3990" />
+        <di:waypoint x="1030" y="3988" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_82" bpmnElement="Flow_82">
+        <di:waypoint x="1066" y="3988" />
+        <di:waypoint x="1190" y="3985" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_83" bpmnElement="Flow_83">
+        <di:waypoint x="1240" y="3985" />
+        <di:waypoint x="1472" y="3985" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1351" y="3950" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_84" bpmnElement="Flow_84">
+        <di:waypoint x="1215" y="4010" />
+        <di:waypoint x="1215" y="4128" />
+        <di:waypoint x="1650" y="4128" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1425" y="4093" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Shape_Participant_Worker" bpmnElement="Participant_Worker" isHorizontal="true">
+        <dc:Bounds x="310" y="4280" width="2600" height="390" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CorreoFin" bpmnElement="CorreoFin">
+        <dc:Bounds x="1392" y="4363" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1381" y="4407" width="78" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CorreoFallo" bpmnElement="CorreoFallo">
+        <dc:Bounds x="1610" y="4529" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1608" y="4573" width="60" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CorreoInicio" bpmnElement="CorreoInicio">
+        <dc:Bounds x="385" y="4472" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="434" y="4516" width="92" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_EnviarCorreo" bpmnElement="EnviarCorreo">
+        <dc:Bounds x="537" y="4436" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_CorreoEntregado" bpmnElement="CorreoEntregado" isMarkerVisible="true">
+        <dc:Bounds x="865" y="4465" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="921" y="4483" width="67" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GuardarFallo" bpmnElement="GuardarFallo">
+        <dc:Bounds x="1320" y="4535" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_GuardarEntrega" bpmnElement="GuardarEntrega">
+        <dc:Bounds x="1017" y="4333" width="205" height="90" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_85" bpmnElement="Flow_85">
+        <di:waypoint x="421" y="4488" />
+        <di:waypoint x="537" y="4485" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_89" bpmnElement="Flow_89">
+        <di:waypoint x="890" y="4515" />
+        <di:waypoint x="890" y="4580" />
+        <di:waypoint x="1320" y="4580" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="966" y="4558" width="108" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_90" bpmnElement="Flow_90">
+        <di:waypoint x="1525" y="4582" />
+        <di:waypoint x="1568" y="4582" />
+        <di:waypoint x="1568" y="4547" />
+        <di:waypoint x="1610" y="4547" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_86" bpmnElement="Flow_86">
+        <di:waypoint x="742" y="4488" />
+        <di:waypoint x="867" y="4488" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_87" bpmnElement="Flow_87">
+        <di:waypoint x="890" y="4465" />
+        <di:waypoint x="890" y="4372" />
+        <di:waypoint x="1017" y="4372" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="857" y="4408" width="11" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_88" bpmnElement="Flow_88">
+        <di:waypoint x="1222" y="4381" />
+        <di:waypoint x="1392" y="4381" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_117" bpmnElement="Message_117">
+        <di:waypoint x="537" y="4447" />
+        <di:waypoint x="200" y="4447" />
+        <di:waypoint x="200" y="123" />
+        <di:waypoint x="310" y="123" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="155" y="2248" width="91" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_91" bpmnElement="Message_91">
+        <di:waypoint x="380" y="165" />
+        <di:waypoint x="380" y="395" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="298" y="283" width="78" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_92" bpmnElement="Message_92">
+        <di:waypoint x="430" y="165" />
+        <di:waypoint x="430" y="610" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="400" y="263" width="120" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_94" bpmnElement="Message_94">
+        <di:waypoint x="1486" y="1423" />
+        <di:waypoint x="3060" y="1423" />
+        <di:waypoint x="3060" y="350" />
+        <di:waypoint x="853" y="350" />
+        <di:waypoint x="853" y="370" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1909" y="315" width="96" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_95" bpmnElement="Message_95">
+        <di:waypoint x="1138" y="460" />
+        <di:waypoint x="1138" y="480" />
+        <di:waypoint x="3090" y="480" />
+        <di:waypoint x="3090" y="1740" />
+        <di:waypoint x="403" y="1740" />
+        <di:waypoint x="403" y="1797" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1729" y="1713" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_98" bpmnElement="Message_98">
+        <di:waypoint x="1663" y="460" />
+        <di:waypoint x="1663" y="510" />
+        <di:waypoint x="3180" y="510" />
+        <di:waypoint x="3180" y="2430" />
+        <di:waypoint x="380" y="2430" />
+        <di:waypoint x="380" y="2477" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1721" y="2395" width="120" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_106" bpmnElement="Message_106">
+        <di:waypoint x="2068" y="3268" />
+        <di:waypoint x="3360" y="3268" />
+        <di:waypoint x="3360" y="600" />
+        <di:waypoint x="1478" y="600" />
+        <di:waypoint x="1478" y="620" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3295" y="1897" width="130" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_93" bpmnElement="Message_93">
+        <di:waypoint x="580" y="363" />
+        <di:waypoint x="580" y="270" />
+        <di:waypoint x="3030" y="270" />
+        <di:waypoint x="3030" y="1210" />
+        <di:waypoint x="380" y="1210" />
+        <di:waypoint x="380" y="1312" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1658" y="1175" width="96" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_111" bpmnElement="Message_111">
+        <di:waypoint x="2340" y="955" />
+        <di:waypoint x="2340" y="1200" />
+        <di:waypoint x="3480" y="1200" />
+        <di:waypoint x="3480" y="3820" />
+        <di:waypoint x="403" y="3820" />
+        <di:waypoint x="403" y="3970" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1911" y="3785" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_110" bpmnElement="Message_110">
+        <di:waypoint x="1678" y="955" />
+        <di:waypoint x="1678" y="3690" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1646" y="2287" width="65" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_109" bpmnElement="Message_109">
+        <di:waypoint x="1450" y="3690" />
+        <di:waypoint x="1450" y="932" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1385" y="2275" width="130" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_96" bpmnElement="Message_96">
+        <di:waypoint x="1182" y="571" />
+        <di:waypoint x="3120" y="560" />
+        <di:waypoint x="3120" y="2080" />
+        <di:waypoint x="370" y="2080" />
+        <di:waypoint x="370" y="2142" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1718" y="2045" width="124" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_97" bpmnElement="Message_97">
+        <di:waypoint x="1085" y="820" />
+        <di:waypoint x="3150" y="820" />
+        <di:waypoint x="3150" y="2100" />
+        <di:waypoint x="1340" y="2100" />
+        <di:waypoint x="1340" y="2160" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2075" y="785" width="85" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_99" bpmnElement="Message_99">
+        <di:waypoint x="1720" y="765" />
+        <di:waypoint x="1720" y="2485" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1689" y="1590" width="62" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_112" bpmnElement="Message_112">
+        <di:waypoint x="2425" y="1815" />
+        <di:waypoint x="3530" y="1815" />
+        <di:waypoint x="3530" y="4260" />
+        <di:waypoint x="403" y="4260" />
+        <di:waypoint x="403" y="4472" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1911" y="4225" width="111" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_113" bpmnElement="Message_113">
+        <di:waypoint x="870" y="2348" />
+        <di:waypoint x="870" y="2410" />
+        <di:waypoint x="3570" y="2410" />
+        <di:waypoint x="3570" y="4790" />
+        <di:waypoint x="420" y="4790" />
+        <di:waypoint x="420" y="4495" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1943" y="4755" width="104" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_114" bpmnElement="Message_114">
+        <di:waypoint x="2525" y="2280" />
+        <di:waypoint x="3610" y="2280" />
+        <di:waypoint x="3610" y="4860" />
+        <di:waypoint x="390" y="4860" />
+        <di:waypoint x="390" y="4502" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1939" y="4825" width="123" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_100" bpmnElement="Message_100">
+        <di:waypoint x="930" y="2516" />
+        <di:waypoint x="930" y="2680" />
+        <di:waypoint x="380" y="2680" />
+        <di:waypoint x="380" y="2747" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="619" y="2645" width="74" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_108" bpmnElement="Message_108">
+        <di:waypoint x="2106" y="2498" />
+        <di:waypoint x="3390" y="2498" />
+        <di:waypoint x="3390" y="3630" />
+        <di:waypoint x="1048" y="3630" />
+        <di:waypoint x="1048" y="3690" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2185" y="3603" width="70" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_102" bpmnElement="Message_102">
+        <di:waypoint x="778" y="3286" />
+        <di:waypoint x="778" y="3540" />
+        <di:waypoint x="3240" y="3540" />
+        <di:waypoint x="3240" y="2920" />
+        <di:waypoint x="578" y="2920" />
+        <di:waypoint x="578" y="2810" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1873" y="2885" width="72" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_101" bpmnElement="Message_101">
+        <di:waypoint x="530" y="2810" />
+        <di:waypoint x="530" y="3080" />
+        <di:waypoint x="403" y="3080" />
+        <di:waypoint x="403" y="3252" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="447" y="2900" width="86" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_103" bpmnElement="Message_103">
+        <di:waypoint x="853" y="2720" />
+        <di:waypoint x="853" y="2690" />
+        <di:waypoint x="3270" y="2690" />
+        <di:waypoint x="3270" y="3430" />
+        <di:waypoint x="1008" y="3430" />
+        <di:waypoint x="1008" y="3286" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2017" y="2655" width="90" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_104" bpmnElement="Message_104">
+        <di:waypoint x="1048" y="2810" />
+        <di:waypoint x="1048" y="3268" />
+        <di:waypoint x="1026" y="3268" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1016" y="3032" width="119" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_105" bpmnElement="Message_105">
+        <di:waypoint x="1638" y="2810" />
+        <di:waypoint x="1638" y="3252" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1628" y="3024" width="76" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_107" bpmnElement="Message_107">
+        <di:waypoint x="1398" y="3286" />
+        <di:waypoint x="1398" y="3513" />
+        <di:waypoint x="403" y="3513" />
+        <di:waypoint x="403" y="3690" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="835" y="3478" width="131" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_115" bpmnElement="Message_115">
+        <di:waypoint x="2110" y="3726" />
+        <di:waypoint x="2110" y="4080" />
+        <di:waypoint x="360" y="4080" />
+        <di:waypoint x="360" y="4490" />
+        <di:waypoint x="385" y="4490" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1085" y="4065" width="71" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Message_116" bpmnElement="Message_116">
+        <di:waypoint x="1048" y="3970" />
+        <di:waypoint x="1048" y="3860" />
+        <di:waypoint x="3690" y="3860" />
+        <di:waypoint x="3690" y="5010" />
+        <di:waypoint x="403" y="5010" />
+        <di:waypoint x="403" y="4508" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="3656" y="4428" width="123" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
