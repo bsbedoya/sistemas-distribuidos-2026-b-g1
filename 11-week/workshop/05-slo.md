@@ -106,3 +106,115 @@ Proposed PromQL:
 
 
 
+```promql
+
+sum(increase(appointments\_request\_duration\_seconds\_bucket{
+
+&#x20; route="/api/v1/appointments",le="1.0"
+
+}\[30d]))
+
+/
+
+clamp\_min(sum(increase(appointments\_request\_duration\_seconds\_count{
+
+&#x20; route="/api/v1/appointments"
+
+}\[30d])),1)
+
+```
+
+
+
+Fast responses help patients schedule dental appointments without unnecessary waiting.
+
+
+
+A bucket with le="1.0" must exist in the configured histogram.
+
+
+
+\### SLO 3 â€” JVM Memory Stability
+
+
+
+\*\*SLI formula:\*\*
+
+
+
+Memory stability = healthy memory samples / total valid samples
+
+
+
+\- Target: 95% of samples below 85% heap utilization
+
+\- Window: 30 days
+
+\- Sampling interval: 5 minutes
+
+
+
+Proposed PromQL:
+
+
+
+```promql
+
+avg\_over\_time(
+
+&#x20; (
+
+&#x20;   (
+
+&#x20;     sum(jvm\_memory\_used\_bytes{area="heap"})
+
+&#x20;     /
+
+&#x20;     sum(jvm\_memory\_max\_bytes{area="heap"})
+
+&#x20;   ) < bool 0.85
+
+&#x20; )\[30d:5m]
+
+)
+
+```
+
+
+
+This is a supporting infrastructure SLO. It helps detect memory pressure that may affect appointment scheduling.
+
+
+
+It does not prove that an appointment was stored successfully.
+
+
+
+\## 2. Traffic Estimate
+
+
+
+The following values are an illustrative planning scenario, not measured DILUCCA production traffic.
+
+
+
+\- Estimated requests per day: 1,000
+
+\- Measurement period: 30 days
+
+\- Estimated monthly requests: 30,000
+
+
+
+The estimate assumes a small deployment with repeated appointment scheduling activity throughout the day.
+
+
+
+This assumption must be reviewed against actual clinic traffic before adopting the SLO.
+
+
+
+\## 3. Availability Error Budget
+
+
+
