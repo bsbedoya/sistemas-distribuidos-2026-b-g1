@@ -10,60 +10,53 @@ Do not remove section headings or table headers.
 - FULL_NAME: Brayan Smith Bedoya Montealegre
 - GITHUB_USER: bsbedoya
 - TEAM: DILUCCA
-- SPRINT_GOAL: Make the dental appointment scheduling journey observable through trace propagation, structured logging, metrics, and automated testing.
+- SPRINT_GOAL: Improve observability and incident response for the dental appointment scheduling journey.
 
 ## 1. User stories worked this week
 
 | **HU ID** | **Title** | **Status (todo/doing/done)** | **Evidence (PR or commit URL)** |
 | --- | --- | --- | --- |
-| HU-APT-001 | Dental appointment scheduling: observability, trace propagation, structured logs, instrumentation, and metric catalog (W11 workshop, CP0-CP4) | doing | [CP3 instrumentation](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/20a18df), [CP3 test](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0fa575d), [CP4 metrics](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0ffb957) |
+| HU-APT-001 | Dental appointment scheduling observability: tracing, structured logs, instrumentation and metrics (CP0-CP4) | doing | [CP3](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0fa575d), [CP4](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0ffb957) |
+| TECH-OBS-001 | Reliability planning: SLOs, error budget, burn-rate alerts, runbook and incident simulation (CP6-CP9) | done | [CP6](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/220166a), [CP7](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/3ee75e0), [CP9](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/dec7639) |
 
-> **Scope note:** The observability implementation is a workshop prototype based on the Appointments domain. It does not replace the production implementation of the scheduling service.
+> **Scope note:** TECH-OBS-001 is an individual workshop task, not an officially approved product HU. The observability implementation remains a prototype.
 
 ## 2. My individual contribution
 
-- **Critical journey mapping (CP1):** Documented the dental appointment scheduling flow through the Appointments Portal, API Gateway, appointments-service, and PostgreSQL. Defined the W3C traceparent propagation strategy and identified the AppointmentScheduled event.
-
-- **Structured logging (CP2):** Created a JSON logging contract with trace_id, span_id, correlation_id, timestamp, service, event, duration_ms, and appointment-related fields. Established rules to avoid exposing sensitive patient information.
-
-- **Instrumentation (CP3):** Developed a Spring Boot observability prototype using Java, Micrometer, and Prometheus. Implemented an HTTP tracing filter, structured JSON logging, request counters, a latency histogram, and simulated downstream HTTP propagation.
-
-- **Automated testing (CP3):** Created a JUnit test to verify that the trace_id remains consistent between the incoming request and the simulated downstream endpoint. The test passed with 1 test, 0 failures, and 0 errors.
-
-- **Golden signals (CP4):** Defined the metric catalog for appointments-service and the API Gateway, covering latency, traffic, errors, and saturation. Documented PromQL queries, label cardinality, restricted labels, and latency histogram buckets.
+- **CP1 - Critical journey:** Mapped dental appointment scheduling through the Appointments Portal, API Gateway, appointments-service and PostgreSQL, including W3C traceparent propagation.
+- **CP2 - Structured logging:** Defined JSON logs with trace_id, span_id, correlation_id, event, service, timestamp and duration_ms.
+- **CP3 - Instrumentation:** Created a Spring Boot prototype with HTTP trace propagation, structured logs, Micrometer metrics and a JUnit test that passed with zero failures.
+- **CP4 - Golden signals:** Documented latency, traffic, errors and saturation, including PromQL queries and bounded metric labels.
+- **CP6 - SLOs:** Proposed three reliability objectives and calculated a 0.5% error budget, equivalent to 150 failed requests or 216 minutes in the estimated scenario.
+- **CP7 - Alerts:** Defined fast-burn and slow-burn Prometheus alerts with 7.2% and 3% error thresholds.
+- **CP8 - Runbook:** Documented incident symptoms, confirmation queries, first mitigations, escalation and recovery checks.
+- **CP9 - Incident drill:** Simulated a 40-minute PostgreSQL slowdown affecting 25% of requests and documented the trace, impact, timeline and preventive user stories.
+- **CP10 - Planning:** Prepared an implementation plan for bringing these improvements into the real DILUCCA architecture.
 
 ## 3. Blockers and risks
 
-- The instrumentation currently runs as an independent workshop prototype and is not integrated into the production DILUCCA appointments API.
-
-- Downstream HTTP propagation was tested using a simulated endpoint rather than a separate deployed microservice.
-
-- The proposed API Gateway metrics have not yet been implemented or verified.
-
-- The current metrics do not fully distinguish scheduling operations from other HTTP endpoints.
-
-- A complete production observability implementation will require integration with the real Appointments API, gateway, and related services.
+- Observability instrumentation has not been integrated into the production appointments-service.
+- Downstream trace propagation was tested using a simulated local endpoint.
+- Gateway metrics and production Prometheus alert deployment remain unverified.
+- The current counter requires a normalized route label and improved error classification.
+- PostgreSQL failure handling and recovery procedures need testing against the real service.
+- Formal promtool validation of the alert rules is still pending.
 
 ## 4. Plan for next week
 
-- Define service-level indicators and service-level objectives for dental appointment scheduling.
-
-- Calculate the availability error budget based on an estimated request volume.
-
-- Design fast and slow burn-rate alerts using Prometheus.
-
-- Create an incident response runbook for the Appointments service.
-
-- Simulate a downstream performance incident and document the postmortem.
-
-- Evaluate how the workshop instrumentation could be integrated into the real DILUCCA architecture.
+- Integrate trace propagation and structured logging into the real Appointments API.
+- Add route-specific Prometheus metrics for POST /api/v1/appointments.
+- Distinguish expected scheduling conflicts from infrastructure failures.
+- Validate SLO targets using realistic traffic and measured service behavior.
+- Test PostgreSQL timeout handling and appointment recovery.
+- Review alert rules, deployment procedures and escalation responsibilities with the team.
 
 ## 5. Compliance self-check
 
 - [x] Conventional Commits - `type(scope): summary`
-- [ ] Per-environment HU branch + PR to that environment
-- [x] Testable acceptance criteria for trace propagation
-- [x] Automated test added and executed successfully
+- [ ] Per-environment HU branch and PR for production integration
+- [x] Testable acceptance criteria defined
+- [x] Automated trace propagation test passed
 - [ ] Production DDD / hexagonal integration verified
 - [x] No secrets or sensitive patient data included in the workshop code
 
@@ -75,19 +68,24 @@ Do not remove section headings or table headers.
 - [Appointments API](https://github.com/code-corhuila/dlc-appointments-api)
 - [Appointments Portal](https://github.com/code-corhuila/dlc-appointments-portal)
 
-### W11 Observability Workshop — Appointments (Personal Fork)
+### W11 Observability Workshop - Appointments
 
 - CP0: [Workshop configuration](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/tree/main/11-week/workshop)
-- CP1: [Critical journey and trace mapping](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/9bc5a1e)
-- CP2: [Structured log contract](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0541454)
-- CP3: [Trace-context middleware and structured logger](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/2cfcb9c)
-- CP3: [Observability module configuration](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/208d155)
-- CP3: [HTTP propagation and metrics](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/20a18df)
-- CP3: [Automated trace propagation test](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0fa575d)
-- CP4: [Golden signals and metric catalog](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0ffb957)
+- CP1: [Journey and trace map](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/9bc5a1e)
+- CP2: [Structured logs](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0541454)
+- CP3: [Trace filter and logger](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/2cfcb9c)
+- CP3: [Metrics instrumentation](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/20a18df)
+- CP3: [Automated test](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0fa575d)
+- CP4: [Metric catalog](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/0ffb957)
+- CP5: [Delivery 1 status](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/a2ee071)
+- CP6: [SLO definitions](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/630b4f3)
+- CP6: [Traffic estimates](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/8937104)
+- CP6: [Error budget policy](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/220166a)
+- CP7: [Burn-rate alerts](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/3ee75e0)
+- CP8: [Incident response runbook](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/blob/main/11-week/workshop/07-runbook.md)
+- CP9: [Incident drill and postmortem](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/commit/dec7639)
 
 ### Workshop Resources
 
 - [Week 11 Workshop Folder](https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/tree/main/11-week/workshop)
 - [Reflection Document](https://docs.google.com/document/d/17tkciAmjerht8xmr-4mnyyEsozMKCwL_pex1hB6inVw/edit?usp=sharing)
-
