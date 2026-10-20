@@ -1,0 +1,77 @@
+groups:
+  - name: dilucca-appointments-slo
+    interval: 30s
+    rules:
+      - alert: AppointmentsFastBurn
+        expr: |
+          (
+            sum(rate(appointments_requests_total{
+              route="/api/v1/appointments",
+              outcome="error"
+            }[1h]))
+            /
+            clamp_min(
+              sum(rate(appointments_requests_total{
+                route="/api/v1/appointments"
+              }[1h])), 0.000001
+            )
+          ) > 0.072
+          and
+          (
+            sum(rate(appointments_requests_total{
+              route="/api/v1/appointments",
+              outcome="error"
+            }[5m]))
+            /
+            clamp_min(
+              sum(rate(appointments_requests_total{
+                route="/api/v1/appointments"
+              }[5m])), 0.000001
+            )
+          ) > 0.072
+        for: 5m
+        labels:
+          severity: critical
+          team: appointments
+          service: appointments-service
+        annotations:
+          summary: "DILUCCA Appointments fast error-budget burn"
+          description: "Error rate exceeds 7.2% across 1h and 5m windows."
+          runbook_url: "https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/blob/main/11-week/workshop/07-runbook.md"
+
+      - alert: AppointmentsSlowBurn
+        expr: |
+          (
+            sum(rate(appointments_requests_total{
+              route="/api/v1/appointments",
+              outcome="error"
+            }[6h]))
+            /
+            clamp_min(
+              sum(rate(appointments_requests_total{
+                route="/api/v1/appointments"
+              }[6h])), 0.000001
+            )
+          ) > 0.03
+          and
+          (
+            sum(rate(appointments_requests_total{
+              route="/api/v1/appointments",
+              outcome="error"
+            }[30m]))
+            /
+            clamp_min(
+              sum(rate(appointments_requests_total{
+                route="/api/v1/appointments"
+              }[30m])), 0.000001
+            )
+          ) > 0.03
+        for: 30m
+        labels:
+          severity: warning
+          team: appointments
+          service: appointments-service
+        annotations:
+          summary: "DILUCCA Appointments slow error-budget burn"
+          description: "Error rate exceeds 3% across 6h and 30m windows."
+          runbook_url: "https://github.com/bsbedoya/sistemas-distribuidos-2026-b-g1/blob/main/11-week/workshop/07-runbook.md"
