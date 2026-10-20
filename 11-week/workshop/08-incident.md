@@ -1,24 +1,24 @@
-\# CP9 — Incident Drill and Blameless Postmortem
+# CP9 — Incident Drill and Blameless Postmortem
 
 
 
-\## 1. Incident Context
+## 1. Incident Context
 
 
 
-\- Project: DILUCCA
+- Project: DILUCCA
 
-\- Domain: Appointments
+- Domain: Appointments
 
-\- Journey: Dental Appointment Scheduling
+- Journey: Dental Appointment Scheduling
 
-\- Endpoint: POST /api/v1/appointments
+- Endpoint: POST /api/v1/appointments
 
-\- Dependency: PostgreSQL
+- Dependency: PostgreSQL
 
-\- Duration: 40 minutes
+- Duration: 40 minutes
 
-\- Severity: Simulated critical incident
+- Severity: Simulated critical incident
 
 
 
@@ -26,7 +26,7 @@ This is a hypothetical exercise, not a real production incident.
 
 
 
-\## 2. Incident Scenario
+## 2. Incident Scenario
 
 
 
@@ -42,7 +42,7 @@ The remaining 75% complete normally.
 
 
 
-\## 3. Slow Request Trace
+## 3. Slow Request Trace
 
 
 
@@ -50,7 +50,7 @@ Example simulated trace:
 
 
 
-\- trace\_id: 4bf92f3577b34da6a3ce929d0e0e4736
+- trace\_id: 4bf92f3577b34da6a3ce929d0e0e4736
 
 
 
@@ -88,7 +88,7 @@ The PostgreSQL operation is the main contributor to the failed request.
 
 
 
-\## 4. Structured Logs
+## 4. Structured Logs
 
 
 
@@ -110,7 +110,7 @@ The following JSON logs are simulated examples based on the CP2 logging contract
 
 
 
-\## 5. SLI Impact
+## 5. SLI Impact
 
 
 
@@ -118,13 +118,13 @@ Assumptions from CP6:
 
 
 
-\- Daily traffic: 1,000 requests
+- Daily traffic: 1,000 requests
 
-\- Monthly traffic: 30,000 requests
+- Monthly traffic: 30,000 requests
 
-\- Availability SLO: 99.5%
+- Availability SLO: 99.5%
 
-\- Error budget: 150 requests or 216 minutes
+- Error budget: 150 requests or 216 minutes
 
 
 
@@ -132,13 +132,13 @@ During the simulated incident:
 
 
 
-\- Error ratio: 25%
+- Error ratio: 25%
 
-\- Availability SLI: 75%
+- Availability SLI: 75%
 
-\- Latency SLI: approximately 75% within 1 second
+- Latency SLI: approximately 75% within 1 second
 
-\- Memory stability SLI: not determined
+- Memory stability SLI: not determined
 
 
 
@@ -186,19 +186,19 @@ All calculations are estimates, not observed traffic.
 
 
 
-\## 6. Which Alert Fires First?
+## 6. Which Alert Fires First?
 
 
 
 Fast burn:
 
-\- Threshold: 7.2%
+- Threshold: 7.2%
 
-\- Main window: 1 hour
+- Main window: 1 hour
 
-\- Short window: 5 minutes
+- Short window: 5 minutes
 
-\- Additional persistence: 5 minutes
+- Additional persistence: 5 minutes
 
 
 
@@ -212,13 +212,13 @@ The fast-burn alert can fire around minute 23, assuming 30-second rule evaluatio
 
 Slow burn:
 
-\- Threshold: 3%
+- Threshold: 3%
 
-\- Main window: 6 hours
+- Main window: 6 hours
 
-\- Short window: 30 minutes
+- Short window: 30 minutes
 
-\- Additional persistence: 30 minutes
+- Additional persistence: 30 minutes
 
 
 
@@ -230,7 +230,7 @@ Therefore, AppointmentsFastBurn fires first. AppointmentsSlowBurn does not fire 
 
 
 
-\## 7. Runbook Response
+## 7. Runbook Response
 
 
 
@@ -238,15 +238,15 @@ Follow 07-runbook.md:
 
 
 
-1\. Confirm the fast-burn alert with PromQL and trace\_id logs.
+1. Confirm the fast-burn alert with PromQL and trace\_id logs.
 
-2\. Pause risky releases and contact the Appointments owner.
+2. Pause risky releases and contact the Appointments owner.
 
-3\. Escalate PostgreSQL performance to the database owner.
+3. Escalate PostgreSQL performance to the database owner.
 
-4\. Investigate the slow query and apply an approved mitigation.
+4. Investigate the slow query and apply an approved mitigation.
 
-5\. Verify recovery using error ratio, latency and request logs.
+5. Verify recovery using error ratio, latency and request logs.
 
 
 
@@ -258,37 +258,28 @@ Assume the database issue is resolved at minute 40. This is a simulated recovery
 
 
 
-\## 8. Blameless Postmortem
+## 8. Blameless Postmortem
 
 
 
-\### Timeline
+### Timeline
 
 
 
-| Minute | Event |
-
-|---|---|
-
-| 0 | PostgreSQL slowdown begins. |
-
-| 5 | Short-window error ratio increases. |
-
-| 18 | One-hour error ratio exceeds 7.2%. |
-
-| 23 | Fast-burn alert fires. |
-
-| 25 | Team investigates traces and PostgreSQL. |
-
-| 30 | Database owner begins mitigation. |
-
-| 40 | Dependency performance returns to normal. |
-
-| 45 | Team checks recovery and continued monitoring. |
+| Minute | Event                                               |
+|--------|-----------------------------------------------------|
+| 0      | PostgreSQL slowdown begins.                         |
+| 5      | Short-window error ratio increases.                 |
+| 18     | One-hour error ratio exceeds 7.2%.                  |
+| 23     | Fast-burn alert fires.                              |
+| 25     | Team investigates traces and PostgreSQL.            |
+| 30     | Database owner begins mitigation.                   |
+| 40     | Dependency performance returns to normal.          |
+| 45     | Team checks recovery and continued monitoring.      |
 
 
 
-\### Impact
+### Impact
 
 
 
@@ -300,7 +291,7 @@ The incident consumed around 4.63% of the monthly error budget, equivalent to 10
 
 
 
-\### Root Cause
+### Root Cause
 
 
 
@@ -308,25 +299,25 @@ Assumed root cause: PostgreSQL query degradation increased database response tim
 
 
 
-\### Contributing Factors
+### Contributing Factors
 
 
 
-\- Dependency latency affects synchronous scheduling.
+- Dependency latency affects synchronous scheduling.
 
-\- Database timeout errors reduce availability.
+- Database timeout errors reduce availability.
 
-\- Current prototype instrumentation lacks route-specific metrics.
+- Current prototype instrumentation lacks route-specific metrics.
 
-\- Production alert deployment has not been verified.
-
-
-
-\## 9. Preventive User Stories
+- Production alert deployment has not been verified.
 
 
 
-\### HU-OBS-001 — Route Metrics
+## 9. Preventive User Stories
+
+
+
+### HU-OBS-001 — Route Metrics
 
 
 
@@ -336,15 +327,15 @@ As an Appointments owner, I want route-specific metrics so that scheduling failu
 
 Acceptance criteria:
 
-\- POST /api/v1/appointments has a normalized route label.
+- POST /api/v1/appointments has a normalized route label.
 
-\- Prometheus exposes request totals by outcome.
+- Prometheus exposes request totals by outcome.
 
-\- Expected business conflicts are not counted as outages.
+- Expected business conflicts are not counted as outages.
 
 
 
-\### HU-OBS-002 — Database Timeout Monitoring
+### HU-OBS-002 — Database Timeout Monitoring
 
 
 
@@ -354,15 +345,15 @@ As an Appointments owner, I want database timeout visibility so that slow Postgr
 
 Acceptance criteria:
 
-\- Database operations report duration and timeout outcomes.
+- Database operations report duration and timeout outcomes.
 
-\- Trace IDs connect incoming requests with dependency logs.
+- Trace IDs connect incoming requests with dependency logs.
 
-\- An automated test verifies timeout error classification.
+- An automated test verifies timeout error classification.
 
 
 
-\### HU-OBS-003 — Incident Recovery Verification
+### HU-OBS-003 — Incident Recovery Verification
 
 
 
@@ -372,15 +363,15 @@ As a release coordinator, I want recovery checks so that scheduling is safe befo
 
 Acceptance criteria:
 
-\- An automated check verifies the scheduling endpoint.
+- An automated check verifies the scheduling endpoint.
 
-\- Error ratio and P95 latency are reviewed.
+- Error ratio and P95 latency are reviewed.
 
-\- Recovery evidence is recorded in the incident report.
+- Recovery evidence is recorded in the incident report.
 
 
 
-\## 10. Conclusion
+## 10. Conclusion
 
 
 
