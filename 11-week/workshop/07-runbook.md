@@ -1,28 +1,28 @@
-\# CP8 — Incident Response Runbook
+# CP8 — Incident Response Runbook
 
 
 
-\## 1. Incident Information
+## 1. Incident Information
 
 
 
-\- Project: DILUCCA
+- Project: DILUCCA
 
-\- Domain: Appointments
+- Domain: Appointments
 
-\- Service: appointments-service
+- Service: appointments-service
 
-\- Journey: Dental Appointment Scheduling
+- Journey: Dental Appointment Scheduling
 
-\- Endpoint: POST /api/v1/appointments
+- Endpoint: POST /api/v1/appointments
 
-\- Alert: AppointmentsFastBurn
+- Alert: AppointmentsFastBurn
 
-\- Severity: critical
+- Severity: critical
 
-\- Team: appointments
+- Team: appointments
 
-\- Availability SLO: 99.5% over 30 days
+- Availability SLO: 99.5% over 30 days
 
 
 
@@ -30,7 +30,7 @@ This runbook is a proposed operational procedure. The observability prototype is
 
 
 
-\## 2. Symptoms
+## 2. Symptoms
 
 
 
@@ -40,17 +40,17 @@ The fast-burn alert indicates that appointment scheduling requests are failing t
 
 Possible symptoms:
 
-\- Error rate above 7.2%.
+- Error rate above 7.2%.
 
-\- Patients cannot schedule appointments.
+- Patients cannot schedule appointments.
 
-\- More failed HTTP requests.
+- More failed HTTP requests.
 
-\- Increased response time.
+- Increased response time.
 
-\- PostgreSQL connectivity problems.
+- PostgreSQL connectivity problems.
 
-\- Unexpected API Gateway or service errors.
+- Unexpected API Gateway or service errors.
 
 
 
@@ -58,11 +58,11 @@ Expected appointment conflicts must not be classified as infrastructure failures
 
 
 
-\## 3. Confirm the Incident
+## 3. Confirm the Incident
 
 
 
-\### Check the error ratio
+### Check the error ratio
 
 
 
@@ -90,7 +90,7 @@ Confirm the same condition over the 1-hour window.
 
 
 
-\### Check P95 latency
+### Check P95 latency
 
 
 
@@ -110,7 +110,7 @@ histogram\_quantile(0.95,
 
 
 
-\### Find related logs
+### Find related logs
 
 
 
@@ -142,15 +142,15 @@ The log file must already exist. The current demo writes JSON to standard output
 
 
 
-Follow the same trace\_id across incoming and downstream requests. Review event, duration\_ms, service and available error details.
+Follow the same trace_id across incoming and downstream requests. Review event, duration_ms, service and available error details.
 
 
 
-\## 4. First Mitigations — Ordered by Risk
+## 4. First Mitigations — Ordered by Risk
 
 
 
-\### 1. Reduce Impact — Lowest Risk
+### 1. Reduce Impact — Lowest Risk
 
 
 
@@ -166,7 +166,7 @@ Do not disable scheduling without notifying the responsible team.
 
 
 
-\### 2. Roll Back a Recent Change — Medium Risk
+### 2. Roll Back a Recent Change — Medium Risk
 
 
 
@@ -182,7 +182,7 @@ Do not roll back database changes without reviewing data safety.
 
 
 
-\### 3. Restore Dependency Capacity — Higher Risk
+### 3. Restore Dependency Capacity — Higher Risk
 
 
 
@@ -198,21 +198,16 @@ Do not assume scaling fixes database connection failures.
 
 
 
-\## 5. Escalation
+## 5. Escalation
 
 
 
-| Role | Responsibility |
-
-|---|---|
-
-| Appointments owner | Confirm impact and investigate scheduling errors. |
-
-| API Gateway / integration owner | Review routing and downstream communication. |
-
-| Database owner | Investigate PostgreSQL health and connection errors. |
-
-| Release coordinator | Approve rollback and communicate incident status. |
+| Role                            | Responsibility                                          |
+|---------------------------------|---------------------------------------------------------|
+| Appointments owner              | Confirm impact and investigate scheduling errors.       |
+| API Gateway / integration owner | Review routing and downstream communication.            |
+| Database owner                  | Investigate PostgreSQL health and connection errors.    |
+| Release coordinator             | Approve rollback and communicate incident status.       |
 
 
 
@@ -224,23 +219,23 @@ Specific on-call contacts and production escalation channels must be defined by 
 
 
 
-\## 6. Verify Recovery
+## 6. Verify Recovery
 
 
 
-1\. Confirm that the affected endpoint responds correctly.
+1. Confirm that the affected endpoint responds correctly.
 
-2\. Check that the error ratio falls below 7.2%.
+2. Check that the error ratio falls below 7.2%.
 
-3\. Verify that the fast-burn alert condition has cleared.
+3. Verify that the fast-burn alert condition has cleared.
 
-4\. Review P95 latency and confirm improvement.
+4. Review P95 latency and confirm improvement.
 
-5\. Inspect recent JSON logs for recurring failures.
+5. Inspect recent JSON logs for recurring failures.
 
-6\. Verify that appointment persistence works in the real system.
+6. Verify that appointment persistence works in the real system.
 
-7\. Monitor the service before resuming normal releases.
+7. Monitor the service before resuming normal releases.
 
 
 
@@ -248,19 +243,19 @@ The alert threshold is not the recovery target. Continue stabilization until the
 
 
 
-\## 7. Limitations and Follow-up
+## 7. Limitations and Follow-up
 
 
 
-\- The CP3 demonstration has no real PostgreSQL persistence.
+- The CP3 demonstration has no real PostgreSQL persistence.
 
-\- The counter currently lacks the route label required by the alert query.
+- The counter currently lacks the route label required by the alert query.
 
-\- Production deployment and alert evaluation remain unverified.
+- Production deployment and alert evaluation remain unverified.
 
-\- Feature flags, rollback automation and scaling must be checked before use.
+- Feature flags, rollback automation and scaling must be checked before use.
 
-\- Formal Prometheus rule validation is still pending.
+- Formal Prometheus rule validation is still pending.
 
 
 
