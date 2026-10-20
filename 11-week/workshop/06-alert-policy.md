@@ -1,26 +1,26 @@
-\# CP7 — Burn-Rate Alert Policy
+# CP7 — Burn-Rate Alert Policy
 
 
 
-\## Project Context
+## Project Context
 
 
 
-\- Project: DILUCCA
+- Project: DILUCCA
 
-\- Domain: Appointments
+- Domain: Appointments
 
-\- Service: appointments-service
+- Service: appointments-service
 
-\- Journey: Dental Appointment Scheduling
+- Journey: Dental Appointment Scheduling
 
-\- Endpoint: POST /api/v1/appointments
+- Endpoint: POST /api/v1/appointments
 
-\- Availability SLO: 99.5% over 30 days
+- Availability SLO: 99.5% over 30 days
 
 
 
-\## 1. Error Budget
+## 1. Error Budget
 
 
 
@@ -32,13 +32,13 @@ Planning assumptions:
 
 
 
-\- 1,000 appointment requests per day
+- 1,000 appointment requests per day
 
-\- 30,000 requests over 30 days
+- 30,000 requests over 30 days
 
-\- 150 allowed failed requests
+- 150 allowed failed requests
 
-\- 216 minutes of equivalent complete downtime
+- 216 minutes of equivalent complete downtime
 
 
 
@@ -46,21 +46,21 @@ These values are academic estimates, not production measurements.
 
 
 
-\## 2. Fast Burn Alert
+## 2. Fast Burn Alert
 
 
 
-\- Name: AppointmentsFastBurn
+- Name: AppointmentsFastBurn
 
-\- Severity: critical
+- Severity: critical
 
-\- Burn rate: 14.4
+- Burn rate: 14.4
 
-\- Main window: 1 hour
+- Main window: 1 hour
 
-\- Short window: 5 minutes
+- Short window: 5 minutes
 
-\- Additional confirmation: for 5 minutes
+- Additional confirmation: for 5 minutes
 
 
 
@@ -92,21 +92,21 @@ recent deployments, review traces and check dependencies.
 
 
 
-\## 3. Slow Burn Alert
+## 3. Slow Burn Alert
 
 
 
-\- Name: AppointmentsSlowBurn
+- Name: AppointmentsSlowBurn
 
-\- Severity: warning
+- Severity: warning
 
-\- Burn rate: 6
+- Burn rate: 6
 
-\- Main window: 6 hours
+- Main window: 6 hours
 
-\- Short window: 30 minutes
+- Short window: 30 minutes
 
-\- Additional confirmation: for 30 minutes
+- Additional confirmation: for 30 minutes
 
 
 
@@ -138,18 +138,12 @@ prioritize reliability improvements.
 
 
 
-\## 4. Alert Response Policy
+## 4. Alert Response Policy
 
-
-
-| Alert | Priority | Action |
-
-|---|---|---|
-
-| Fast burn | Critical | Investigate immediately and mitigate customer impact. |
-
-| Slow burn | Warning | Investigate persistent failures and review recent changes. |
-
+| Alert     | Priority | Action                                                    |
+|-----------|----------|-----------------------------------------------------------|
+| Fast burn | Critical | Investigate immediately and mitigate customer impact.     |
+| Slow burn | Warning  | Investigate persistent failures and review recent changes. |
 
 
 Check the appointments-service JSON logs using trace\_id.
@@ -160,11 +154,11 @@ Review request counters and latency histograms.
 
 
 
-\## 5. Alerts We Will Not Create
+## 5. Alerts We Will Not Create
 
 
 
-\### High CPU usage alone
+### High CPU usage alone
 
 
 
@@ -178,7 +172,7 @@ A high CPU alert alone could generate unnecessary noise.
 
 
 
-\### PostgreSQL latency alone
+### PostgreSQL latency alone
 
 
 
@@ -194,7 +188,7 @@ and use database metrics during investigation.
 
 
 
-\## 6. Implementation Limitations
+## 6. Implementation Limitations
 
 
 
