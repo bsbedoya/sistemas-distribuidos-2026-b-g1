@@ -140,16 +140,10 @@ prioritize reliability improvements.
 
 ## 4. Alert Response Policy
 
-
-
-| Alert | Priority | Action |
-
-|---|---|---|
-
-| Fast burn | Critical | Investigate immediately and mitigate customer impact. |
-
-| Slow burn | Warning | Investigate persistent failures and review recent changes. |
-
+| Alert     | Priority | Action                                                    |
+|-----------|----------|-----------------------------------------------------------|
+| Fast burn | Critical | Investigate immediately and mitigate customer impact.     |
+| Slow burn | Warning  | Investigate persistent failures and review recent changes. |
 
 
 Check the appointments-service JSON logs using trace\_id.
